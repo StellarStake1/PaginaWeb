@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champions League</title>
+    <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgb(68, 52, 211);
+            margin: 0;
+        }
+
+        .titulo-container {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .contenedor-principal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .imagen-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80%;
+            margin-top: 50px; /* Ajusta el margen superior según tus preferencias */
+        }
+
+        .imagen-champions {
+            width: 570px; /* Ajustado el tamaño de la imagen */
+            border-radius: 10px;
+        }
+
+        .telegram-boton {
+            position: fixed;
+            bottom: 20px; /* Posición del botón en la parte inferior */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0088cc;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .telegram-boton:hover {
+            background-color: #006fa1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor-principal">
+        <div class="titulo-container">
+            <h1>Champions League</h1>
+        </div>
+
+        <button class="telegram-boton" onclick="irATelegram()">Únete a nuestro grupo de Telegram</button>
+
+    <script>
+        function irATelegram() {
+            window.open('https://t.me/+X8oJLoa9vUllNGYx');
+        }
+    </script>
+    </script>
+</body>
+
+</html>

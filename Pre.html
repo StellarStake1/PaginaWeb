@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League</title>
+    <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('assets/images/Pree.png'); /* Reemplaza con la ruta de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+        }
+
+        .titulo-container {
+            background-color: #ffffff; /* Color de fondo del cuadro */
+            padding: 10px 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1 {
+            color: #000000;
+            margin: 0;
+        }
+
+        .imagen-container {
+            margin-top: 80px; /* Ajusta según el tamaño del título */
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0 20px; /* Añade algo de espacio a los lados */
+        }
+
+        .imagen-europa {
+            max-width: 100%;
+            max-height: calc(100vh - 140px); /* Ajusta el tamaño máximo de la imagen */
+            height: auto;
+            object-fit: contain;
+        }
+
+        .boton-telegram {
+            position: fixed;
+            bottom: 20px; /* Fija el botón a 20px del fondo de la pantalla */
+            padding: 10px 20px;
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .boton-telegram:hover {
+            background-color: #006699;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="titulo-container">
+        <h1>Premier League</h1>
+    </div>
+    <div class="imagen-container">
+        <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
+        <img class="imagen-europa" src="assets/images/P.png" alt="Logo de la Europa League">
+    </div>
+
+    <!-- Botón de Telegram -->
+    <button class="boton-telegram" onclick="irATelegram()">Únete a nuestro grupo de Telegram</button>
+
+    <script>
+        function irATelegram() {
+            window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europa League</title>
+    <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgb(15, 11, 48);
+            margin: 0;
+        }
+
+        .titulo-container {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .imagen-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60%; /* Ajustado para dar más espacio a la imagen */
+            margin-top: 120px; /* Ajusta el margen superior según tus preferencias */
+        }
+
+        .imagen-europa {
+            width: 70%; /* Ajustado el tamaño para que sea más pequeño */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .boton-telegram {
+            margin-top: 20px; /* Ajusta la distancia desde la parte superior del botón de Telegram */
+            background-color: #0088cc; /* Color de fondo del botón de Telegram */
+            color: #ffffff; /* Color del texto del botón de Telegram */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="titulo-container">
+        <h1>Europa League</h1>
+    </div>
+
+    <div class="imagen-container">
+        <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
+        <img class="imagen-europa" src="assets/images/europa_league_logo.png" alt="Logo de la Europa League">
+    </div>
+
+    <!-- Botón de Telegram -->
+    <div class="boton-telegram" onclick="unirteAlGrupo()">Únete a nuestro grupo de Telegram</div>
+
+    <script>
+        function unirteAlGrupo() {
+            window.open('https://t.me/+vdXdmjzUv6U1MzFh', '_blank'); /* Reemplaza con la URL de tu grupo de Telegram */
+        }
+    </script>
+</body>
+
+</html>

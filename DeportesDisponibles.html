@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deportes Disponibles</title>
+    <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000000;
+            background-image: url('assets/images/FondoC..jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            position: relative;
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .titulo-container {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .boton {
+            margin-top: 25px;
+            margin-bottom: 10px;
+            background-color: orange;
+            color: white;
+            border-radius: 10px;
+            font-size: 20px;
+            width: 200px;
+            height: 60px;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: 40px 20px;
+        }
+
+        .red-social {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+        }
+
+        .telegram {
+            background-image: url('assets/images/TELE.png');
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        .gmail {
+            background-image: url('assets/images/Mail.png');
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        /* Estilo para los carteles */
+        .cartel {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 250px;
+            height: 400px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 10;
+            box-shadow: 0 0 25px 10px rgba(255, 255, 255, 1); /* Efecto de resplandor fuerte */
+            border-radius: 10px;
+        }
+
+        /* Cartel izquierda */
+        .cartel-izquierda {
+            left: 0;
+            background-image: url('assets/images/LU.png');
+        }
+
+        /* Cartel derecha */
+        .cartel-derecha {
+            right: 0;
+            background-image: url('assets/images/LU.png');
+        }
+
+        /* Para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .cartel {
+                width: 200px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function verFutbol() {
+            window.open('futbol.html', '_blank');
+        }
+
+        function verBaloncesto() {
+            window.open('baloncesto.html', '_blank');
+        }
+
+        function verTenis() {
+            window.open('tenis.html', '_blank');
+        }
+
+        function verFutbolFemenino() {
+            window.open('futbol_femenino.html', '_blank');
+        }
+
+        function irATelegram() {
+            window.open('https://t.me/+X8oJLoa9vUllNGYx');
+        }
+
+        function irAGmail() {
+            window.location.href = 'mailto:strellastake@gmail.com';
+        }
+    </script>
+
+    <!-- Contenido de Deportes Disponibles -->
+    <div class="titulo-container">
+        <h1>Deportes Disponibles</h1>
+    </div>
+    <button class="boton" onclick="verFutbol()">Fútbol</button>
+    <button class="boton" onclick="verBaloncesto()">Baloncesto</button>
+    <button class="boton" onclick="verTenis()">Tenis</button>
+    <button class="boton" onclick="verFutbolFemenino()">Fútbol Femenino</button>
+
+    <!-- Botones de Redes Sociales -->
+    <div class="red-social">
+        <div class="telegram" onclick="irATelegram()"></div>
+        <div class="gmail" onclick="irAGmail()"></div>
+    </div>
+
+    <!-- Carteles -->
+    <div class="cartel cartel-izquierda"></div>
+    <div class="cartel cartel-derecha"></div>
+</body>
+
+</html>
