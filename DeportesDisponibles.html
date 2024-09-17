@@ -26,6 +26,7 @@
         h1 {
             color: #000000;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .titulo-container {
@@ -35,39 +36,41 @@
         }
 
         .boton {
-            margin-top: 25px;
-            margin-bottom: 10px;
+            margin-top: 15px;
             background-color: orange;
             color: white;
             border-radius: 10px;
-            font-size: 20px;
-            width: 200px;
-            height: 60px;
-            background-repeat: no-repeat;
-            background-position: right center;
-            background-size: 40px 20px;
+            font-size: 18px;
+            width: 180px;
+            height: 50px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .boton:hover {
+            background-color: #ff9900;
         }
 
         .red-social {
             display: flex;
             justify-content: space-around;
             width: 50%;
+            margin-top: 20px;
+        }
+
+        .telegram, .gmail {
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
         }
 
         .telegram {
             background-image: url('assets/images/TELE.png');
-            background-size: cover;
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
         }
 
         .gmail {
             background-image: url('assets/images/Mail.png');
-            background-size: cover;
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
         }
 
         /* Estilo para los carteles */
@@ -86,21 +89,57 @@
 
         /* Cartel izquierda */
         .cartel-izquierda {
-            left: 0;
+            left: 20px;
             background-image: url('assets/images/LU.png');
         }
 
         /* Cartel derecha */
         .cartel-derecha {
-            right: 0;
+            right: 20px;
             background-image: url('assets/images/LU.png');
         }
 
-        /* Para pantallas pequeñas */
+        /* Para pantallas más pequeñas */
         @media (max-width: 768px) {
+            .boton {
+                width: 160px;
+                height: 45px;
+                font-size: 16px;
+            }
+
             .cartel {
-                width: 200px;
+                width: 180px;
                 height: 300px;
+            }
+
+            .red-social {
+                width: 80%;
+            }
+
+            .telegram, .gmail {
+                width: 40px;
+                height: 40px;
+            }
+
+            .cartel-izquierda, .cartel-derecha {
+                display: none; /* Esconde los carteles en pantallas pequeñas si ocupan demasiado espacio */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            .boton {
+                width: 150px;
+                height: 40px;
+                font-size: 14px;
+            }
+
+            .telegram, .gmail {
+                width: 35px;
+                height: 35px;
             }
         }
     </style>
