@@ -53,7 +53,7 @@
             font-size: 24px;
             font-weight: bold;
             color: #333333;
-            margin-bottom: px;
+            margin-bottom: 20px;
         }
 
         .register {
@@ -120,13 +120,21 @@
 <body>
     <div class="container">
         <div class="logo"></div>
-        <div class="welcome">Bienvenid@ a StallerStake, página de pronósticos deportivos</div>
+        <div class="welcome">Bienvenid@ a StellarStake, página de pronósticos deportivos</div>
         <div class="register">Los mejores Pronósticos Deportivos Gratis</div>
         <div class="form">
-            <button class="button" id="loginButton" onclick="openDeportesDisponibles()">INGRESA</button>
+            <button class="button" id="loginButton" onclick="showWarning()">INGRESA</button>
         </div>
     </div>
     <script>
+        function showWarning() {
+            var message = "Este sitio web es solo para mayores de edad. Además, las apuestas pueden ser adictivas y deben hacerse con responsabilidad. ¡Apuesta con cuidado!";
+            var userConfirmed = confirm(message);
+            if (userConfirmed) {
+                openDeportesDisponibles();
+            }
+        }
+
         function openDeportesDisponibles() {
             window.open('DeportesDisponibles.html', '_blank');
         }
@@ -134,6 +142,4 @@
 </body>
 
 </html>
-
-
 

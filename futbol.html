@@ -13,13 +13,21 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
             background-color: #a0d8f1;
             background-image: url('assets/images/FondoFutbol.jpg');
             background-size: cover;
             background-position: center;
             margin: 0;
+            min-height: 100vh;
+        }
+
+        /* Contenedor que alinea el título y el botón */
+        .titulo-boton-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 30px; /* Espacio entre el título y el botón */
         }
 
         .titulo-container {
@@ -27,15 +35,26 @@
             padding: 10px 20px;
             border-radius: 10px;
             text-align: center;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            width: 400px; /* Mantiene el título centrado */
         }
 
         h1 {
             color: #000000;
-            margin-bottom: 20px;
+            margin: 0;
+        }
+
+        .btn-combi {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px; /* Botón más grande */
+        }
+
+        .btn-combi:hover {
+            background-color: #ff4500;
         }
 
         .imagenes-container {
@@ -52,41 +71,34 @@
             cursor: pointer;
         }
 
-        /* Ajusta el tamaño y la posición de la imagen Brasil */
         .imagen#brasil {
-            order: 4; /* Cambia el orden para que aparezca debajo de la imagen Liga */
+            order: 4;
         }
     </style>
     <script>
         window.addEventListener('load', function () {
-            // Obtener las imágenes
-            var imagenPre = document.querySelector('.imagen#pre');
-            var imagenITA = document.querySelector('.imagen#ita');
-            var imagenLiga = document.querySelector('.imagen#liga');
-            var imagenDimayor = document.querySelector('.imagen#dimayor');
-            var imagenBrasil = document.querySelector('.imagen#brasil');
-            var imagenUsa = document.querySelector('.imagen#usa');
-            var imagenAfa = document.querySelector('.imagen#Li');
-            var imagenUefa = document.querySelector('.imagen#uefa'); // Corregido el nombre de la clase
-
-            // Agrega un evento de clic a cada imagen
             var imagenes = document.querySelectorAll('.imagen');
             imagenes.forEach(function (imagen) {
                 imagen.addEventListener('click', function () {
-                    // Obtén el nombre de la imagen
                     var nombreImagen = imagen.alt.toLowerCase();
-
-                    // Abre la página correspondiente en una nueva pestaña
                     window.open(nombreImagen + '.html', '_blank');
                 });
             });
         });
+
+        function abrirCombiSonadora() {
+            window.open('combi-sonadora.html', '_blank');
+        }
     </script>
 </head>
 
 <body>
-    <div class="titulo-container">
-        <h1>Contenido de Fútbol</h1>
+    <!-- Contenedor que envuelve tanto el título como el botón -->
+    <div class="titulo-boton-container">
+        <div class="titulo-container">
+            <h1>Contenido de Fútbol</h1>
+        </div>
+        <button class="btn-combi" onclick="abrirCombiSonadora()">COMBI SOÑADORA</button>
     </div>
 
     <div class="imagenes-container">
@@ -95,10 +107,11 @@
         <img class="imagen" id="liga" src="assets/images/Liga.jpg" alt="Liga">
         <img class="imagen" id="dimayor" src="assets/images/dimayor.jpg" alt="Dimayor">
         <img class="imagen" id="brasil" src="assets/images/Brasil.jpg" alt="Brasil">
-        <img class="imagen" id="usa" src="assets/images/Bundes.jpg" alt="Bundesliga"> <!-- Corregido alt -->
+        <img class="imagen" id="usa" src="assets/images/Bundes.jpg" alt="Bundesliga">
         <img class="imagen" id="afa" src="assets/images/Li.jpeg" alt="Li">
-        <img class="imagen" id="uefa" src="assets/images/uefa.jpg" alt="UEFA"> <!-- Corregido el nombre de la clase -->
+        <img class="imagen" id="uefa" src="assets/images/uefa.jpg" alt="UEFA">
     </div>
 </body>
 
 </html>
+
