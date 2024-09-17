@@ -24,18 +24,20 @@
         /* Contenedor que alinea el título y el botón */
         .titulo-boton-container {
             display: flex;
+            flex-direction: column; /* Cambia a columna en dispositivos móviles */
             align-items: center;
             justify-content: center;
             margin-top: 20px;
-            gap: 30px; /* Espacio entre el título y el botón */
+            gap: 20px; /* Espacio entre el título y el botón */
+            text-align: center; /* Alinea el texto al centro */
         }
 
         .titulo-container {
             background-color: #ffffff;
             padding: 10px 20px;
             border-radius: 10px;
-            text-align: center;
-            width: 400px; /* Mantiene el título centrado */
+            width: 90%; /* Ajusta el ancho en dispositivos móviles */
+            max-width: 400px; /* Mantiene el ancho máximo en pantallas grandes */
         }
 
         h1 {
@@ -51,6 +53,8 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 18px; /* Botón más grande */
+            width: 90%; /* Ajusta el ancho en dispositivos móviles */
+            max-width: 300px; /* Mantiene el ancho máximo en pantallas grandes */
         }
 
         .btn-combi:hover {
@@ -73,6 +77,29 @@
 
         .imagen#brasil {
             order: 4;
+        }
+
+        /* Estilos para pantallas pequeñas (móviles) */
+        @media (max-width: 600px) {
+            .titulo-boton-container {
+                flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+                gap: 10px; /* Reduce el espacio entre el título y el botón */
+            }
+
+            .titulo-container {
+                width: 90%; /* Ajusta el ancho del título */
+                padding: 5px 10px; /* Reduce el padding en pantallas pequeñas */
+            }
+
+            .btn-combi {
+                width: 90%; /* Ajusta el ancho del botón */
+                padding: 10px; /* Reduce el padding en pantallas pequeñas */
+                font-size: 16px; /* Ajusta el tamaño del texto en el botón */
+            }
+
+            .imagen {
+                width: 100%; /* Ajusta el tamaño de las imágenes en pantallas pequeñas */
+            }
         }
     </style>
     <script>
@@ -114,4 +141,5 @@
 </body>
 
 </html>
+
 
