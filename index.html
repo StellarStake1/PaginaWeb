@@ -20,30 +20,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
             background-color: #a0d8f1;
             background-image: url('assets/images/FondoP.jpg');
             background-size: cover;
             background-position: center;
+            min-height: 100vh; /* Permite desplazamiento en pantallas más pequeñas */
             margin: 0;
         }
 
         .container {
-            width: 400px;
+            width: 90%; /* Ajusta el ancho para pantallas pequeñas */
+            max-width: 400px;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 20px;
             padding: 20px;
             text-align: center;
             margin-top: 20px;
-            margin-left: 700px;
         }
 
         .logo {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            width: 700px;
-            height: 600px;
+            width: 90%;
+            max-width: 400px;
+            height: auto; /* Para que se ajuste el tamaño en móviles */
+            margin-bottom: 20px;
             background-image: url('assets/images/LogaAa.png');
             background-size: contain;
             background-repeat: no-repeat;
@@ -86,33 +85,73 @@
             transition: 0.3s;
         }
 
-        .social {
-            width: 30%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 35px;
+        /* Modal estilos */
+        .modal {
+            display: none; /* Hidden por defecto */
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
-        .icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 25px;
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-header {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .modal-button {
+            padding: 10px 20px;
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
 
-        .gmail {
-            background-image: url('assets/images/Google.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-color: #db4a39;
+        .modal-button:hover {
+            background-color: #006fa1;
         }
 
-        .facebook {
-            background-image: url('assets/images/facebook.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-color: #3b5998;
+        /* Media queries para pantallas más pequeñas */
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .welcome, .register {
+                font-size: 20px;
+            }
+
+            .button {
+                font-size: 16px;
+                height: 45px;
+            }
+
+            .modal-content {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -123,16 +162,34 @@
         <div class="welcome">Bienvenid@ a StellarStake, página de pronósticos deportivos</div>
         <div class="register">Los mejores Pronósticos Deportivos Gratis</div>
         <div class="form">
-            <button class="button" id="loginButton" onclick="showWarning()">INGRESA</button>
+            <button class="button" id="loginButton" onclick="showModal()">INGRESA</button>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">StellarStake</div>
+            <p>Este sitio web es solo para mayores de edad. Además, las apuestas pueden ser adictivas y deben hacerse con responsabilidad. ¡Apuesta con cuidado!</p>
+            <div class="modal-buttons">
+                <button class="modal-button" onclick="accept()">Aceptar</button>
+                <button class="modal-button" onclick="cancel()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function showWarning() {
-            var message = "Este sitio web es solo para mayores de edad. Además, las apuestas pueden ser adictivas y deben hacerse con responsabilidad. ¡Apuesta con cuidado!";
-            var userConfirmed = confirm(message);
-            if (userConfirmed) {
-                openDeportesDisponibles();
-            }
+        function showModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function accept() {
+            document.getElementById("myModal").style.display = "none";
+            openDeportesDisponibles();
+        }
+
+        function cancel() {
+            document.getElementById("myModal").style.display = "none";
         }
 
         function openDeportesDisponibles() {

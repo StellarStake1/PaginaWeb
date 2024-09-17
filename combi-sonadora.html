@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
     <style>
         body {
-            background-color: #000000; /* Fondo negro */
+            background-color: #000000;
             color: #ffffff;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -18,43 +18,41 @@
             align-items: center;
             min-height: 100vh;
             padding-top: 20px;
+            overflow-x: hidden;
         }
 
-        /* Contenedor del título con las mismas medidas que la página principal */
+        /* Contenedor del título */
         .titulo-container {
             background-color: #ffffff;
             padding: 10px 20px;
             border-radius: 10px;
             text-align: center;
-            width: 400px;
+            width: 90%; /* Ajuste responsivo */
+            max-width: 400px;
             margin-bottom: 20px;
             color: #000000;
         }
 
         h1 {
-            color: #000000; /* Texto negro */
+            color: #000000;
             margin: 0;
             font-size: 24px;
         }
 
         /* Contenedor del mensaje explicativo */
         .mensaje-container {
-            background-color: #333333; /* Fondo gris oscuro para el mensaje */
+            background-color: #333333;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            width: 400px;
+            width: 90%; /* Ajuste responsivo */
+            max-width: 400px;
             color: #ffffff;
-            display: flex; /* Usar flexbox para centrar */
-            flex-direction: column; /* Alinear los botones en columna */
-            justify-content: center; /* Centrar horizontalmente */
-            align-items: center; /* Centrar verticalmente */
-            position: fixed; /* Posicionar el mensaje en el centro de la pantalla */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Centrar el mensaje */
-            z-index: 1000; /* Asegurarse de que el mensaje esté por encima de otros elementos */
-            height: auto; /* Ajustar altura al contenido */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* Permite el desplazamiento */
         }
 
         p {
@@ -79,36 +77,35 @@
             background-color: #ff4500;
         }
 
-        /* Contenedor del contenido (imagen y botón de Telegram), inicialmente oculto */
+        /* Contenedor del contenido (imagen y botón de Telegram) */
         .contenido {
-            display: none; /* Inicialmente oculto */
+            display: none;
             flex-direction: column;
             align-items: center;
             width: 100%;
-            height: calc(100vh - 40px); /* Altura ajustada para el contenido */
             padding: 20px;
             box-sizing: border-box;
-            justify-content: flex-start; /* Alinear al contenido en la parte superior */
+            justify-content: flex-start;
         }
 
         .imagenes-container {
             margin-top: 20px;
-            display: flex; /* Usar flexbox para centrar la imagen */
-            justify-content: center; /* Centrar horizontalmente */
-            align-items: center; /* Centrar verticalmente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
         }
 
         .imagen {
             border-radius: 10px;
             max-width: 90%; /* Ajusta el tamaño máximo según el ancho de la pantalla */
-            max-height: 80vh; /* Ajusta la altura máxima según el alto de la pantalla */
+            max-height: 80vh;
         }
 
         /* Estilo del botón de Telegram */
         .telegram-boton {
             position: fixed;
-            bottom: 20px; /* Posición del botón en la parte inferior */
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #0088cc;
@@ -122,6 +119,33 @@
 
         .telegram-boton:hover {
             background-color: #006fa1;
+        }
+
+        /* Media queries para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .titulo-container,
+            .mensaje-container {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .btn-aceptar,
+            .btn-cancelar {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            .telegram-boton {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
@@ -145,7 +169,7 @@
     <div class="contenido" id="contenido">
         <!-- Contenedor de la imagen -->
         <div class="imagenes-container">
-            <img class="imagen" id="combi" src="assets/images/COM.png" alt="Combi Soñadora">
+            <img class="imagen" id="combi" src="assets/images/aaaaaa.png" alt="Combi Soñadora">
         </div>
 
         <!-- Botón de Telegram -->
@@ -161,12 +185,12 @@
         // Función para cerrar el mensaje y mostrar el contenido
         function cerrarMensaje() {
             document.getElementById('mensaje').style.display = 'none';
-            document.getElementById('contenido').style.display = 'flex'; // Mostrar el contenido
+            document.getElementById('contenido').style.display = 'flex';
         }
 
         // Función para cancelar y regresar a la página de contenido futbol
         function cancelarMensaje() {
-            window.location.href = 'futbol.html'; // Redirige a la página de contenido futbol
+            window.location.href = 'futbol.html';
         }
 
         // Función para abrir el enlace de Telegram

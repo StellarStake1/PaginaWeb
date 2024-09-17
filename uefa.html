@@ -13,18 +13,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
             background-color: rgb(68, 52, 211);
             margin: 0;
-            overflow: hidden; /* Evita el desplazamiento */
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden; /* Evita el desbordamiento horizontal */
         }
 
         .titulo-container {
             background-color: #ffffff;
             padding: 10px 20px;
             border-radius: 10px;
-            position: absolute;
+            position: fixed;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
@@ -42,7 +42,9 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: calc(100% - 60px); /* Ajustar la altura para el botón */
+            margin-top: 100px; /* Espacio debajo del título */
+            padding-bottom: 80px; /* Espacio para el botón fijo de Telegram */
+            box-sizing: border-box;
         }
 
         .imagen-container {
@@ -50,19 +52,18 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 80%; /* Ajustar la altura de la imagen */
-            margin-top: 20px; /* Ajustar el margen superior */
+            max-height: 80vh; /* Asegurar que la imagen no sobrepase el viewport */
         }
 
         .imagen-champions {
-            max-width: 100%; /* Ajusta el tamaño de la imagen */
-            height: auto; /* Mantiene la relación de aspecto */
+            max-width: 100%;
+            height: auto;
             border-radius: 10px;
         }
 
         .telegram-boton {
             position: fixed;
-            bottom: 20px; /* Posición del botón en la parte inferior */
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #0088cc;
@@ -78,6 +79,22 @@
         .telegram-boton:hover {
             background-color: #006fa1;
         }
+
+        /* Media queries para pantallas más pequeñas */
+        @media (max-width: 600px) {
+            .titulo-container {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .telegram-boton {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
     </style>
 </head>
 
@@ -88,7 +105,7 @@
 
     <div class="contenedor-principal">
         <div class="imagen-container">
-            <img class="imagen-champions" src="assets/images/CC.png" alt="Champions League">
+            <img class="imagen-champions" src="assets/images/Q.png" alt="Champions League">
         </div>
     </div>
 
