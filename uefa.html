@@ -42,8 +42,8 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            margin-top: 100px; /* Espacio debajo del título */
-            padding-bottom: 80px; /* Espacio para el botón fijo de Telegram */
+            margin-top: 80px; /* Ajuste debajo del título */
+            padding-bottom: 100px; /* Espacio para el botón fijo de Telegram */
             box-sizing: border-box;
         }
 
@@ -52,11 +52,13 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            max-height: 80vh; /* Asegurar que la imagen no sobrepase el viewport */
+            height: auto;
+            overflow: hidden; /* Evita que la imagen se salga del contenedor */
         }
 
         .imagen-champions {
             max-width: 100%;
+            max-height: 70vh; /* Limita la altura máxima para evitar que sea demasiado grande */
             height: auto;
             border-radius: 10px;
         }
@@ -84,15 +86,22 @@
         @media (max-width: 600px) {
             .titulo-container {
                 width: 90%;
+                top: 10px; /* Reduce el espacio en la parte superior para móviles */
             }
 
             h1 {
                 font-size: 20px;
+                text-align: center;
             }
 
             .telegram-boton {
                 font-size: 16px;
                 padding: 10px 20px;
+            }
+
+            .imagen-champions {
+                max-width: 90%; /* Reduce el tamaño de la imagen en móviles */
+                max-height: 50vh; /* Reduce la altura en pantallas pequeñas */
             }
         }
     </style>
@@ -105,7 +114,7 @@
 
     <div class="contenedor-principal">
         <div class="imagen-container">
-            <img class="imagen-champions" src="assets/images/Q.png" alt="Champions League">
+            <img class="imagen-champions" src="assets/images/EE.png" alt="Champions League">
         </div>
     </div>
 
