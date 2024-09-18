@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champions League</title>
+    <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #a0d8f1;
+            background-image: url('assets/images/FondoChampions.jpg'); /* Cambia la imagen de fondo si es necesario */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            min-height: 100vh;
+            justify-content: space-between;
+        }
+
+        .titulo-container {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #000000;
+            margin: 0;
+        }
+
+        .imagen-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            margin-top: 20px;
+        }
+
+        .imagen {
+            width: 320px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .btn-telegram {
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 90%;
+            max-width: 300px;
+            text-decoration: none;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-telegram:hover {
+            background-color: #006699;
+        }
+
+        /* Estilos para pantallas pequeñas (móviles) */
+        @media (max-width: 600px) {
+            .titulo-container {
+                padding: 5px 10px;
+            }
+
+            .btn-telegram {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .imagen {
+                width: 90%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Contenedor del título -->
+    <div class="titulo-container">
+        <h1>Champions League Femenina</h1>
+    </div>
+
+    <!-- Contenedor de la imagen central -->
+    <div class="imagen-container">
+        <img class="imagen" src="assets/images/Z.png" alt="Champions League">
+    </div>
+
+    <!-- Botón de Telegram al final -->
+    <a href="https://t.me/+X8oJLoa9vUllNGYx" class="btn-telegram" target="_blank">Únete a nuestro Telegram</a>
+
+</body>
+
+</html>

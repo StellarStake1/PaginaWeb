@@ -72,6 +72,19 @@
             }
         }
     </style>
+    <script>
+        window.addEventListener('load', function () {
+            var imagenes = document.querySelectorAll('.imagen');
+            imagenes.forEach(function (imagen) {
+                imagen.addEventListener('click', function () {
+                    if (!imagen.classList.contains('no-click')) {
+                        var nombreImagen = imagen.alt.toLowerCase();
+                        window.open(nombreImagen + '.html', '_blank');
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -81,8 +94,8 @@
 
     <div class="imagenes-container">
         <img class="imagen" id="us" src="assets/images/Cham.jpg" alt="Cham">
-        <img class="imagen" id="rolo" src="assets/images/LigaF.jpg" alt="LigaF">
-        <img class="imagen" id="win" src="assets/images/mx.jpg" alt="mx">
+        <img class="imagen no-click" id="rolo" src="assets/images/LigaF.jpg" alt="LigaF">
+        <img class="imagen no-click" id="win" src="assets/images/mx.jpg" alt="mx">
     </div>
 </body>
 
