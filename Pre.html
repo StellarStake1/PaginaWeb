@@ -15,9 +15,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-image: url('assets/images/Pree.png'); /* Reemplaza con la ruta de tu imagen de fondo */
-            background-size: cover;
-            background-position: center;
+            background-color: rgb(60, 44, 148); /* Color de fondo */
             margin: 0;
         }
 
@@ -37,25 +35,25 @@
         }
 
         .imagen-container {
-            margin-top: 80px; /* Ajusta según el tamaño del título */
-            flex: 1;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            margin-top: 40px; /* Espacio suficiente para el título */
             width: 100%;
-            padding: 0 20px; /* Añade algo de espacio a los lados */
         }
 
         .imagen-europa {
             max-width: 100%;
-            max-height: calc(100vh - 140px); /* Ajusta el tamaño máximo de la imagen */
             height: auto;
+            max-height: calc(100vh - 160px); /* Ajusta el tamaño máximo de la imagen */
             object-fit: contain;
         }
 
         .boton-telegram {
             position: fixed;
-            bottom: 20px; /* Fija el botón a 20px del fondo de la pantalla */
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             padding: 10px 20px;
             background-color: #0088cc;
             color: white;
@@ -75,12 +73,12 @@
     <div class="titulo-container">
         <h1>Premier League</h1>
     </div>
+
     <div class="imagen-container">
-        <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
-        <img class="imagen-europa" src="assets/images/V.png" alt="Logo de la Europa League">
+        <!-- Asegúrate de que la ruta de la imagen sea correcta -->
+        <img class="imagen-europa" src="assets/images/RE.png" alt="Logo de la Premier League">
     </div>
 
-    <!-- Botón de Telegram -->
     <button class="boton-telegram" onclick="irATelegram()">Únete a nuestro grupo de Telegram</button>
 
     <script>
