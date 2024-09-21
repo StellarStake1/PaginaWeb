@@ -34,6 +34,26 @@
             margin-bottom: 20px;
         }
 
+        .imagenes-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espacio entre las imágenes */
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Para que se ajusten en pantallas más pequeñas */
+        }
+
+        .imagenes-container img {
+            object-fit: contain; /* Evita la distorsión manteniendo las proporciones */
+            height: auto;
+            max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+        }
+
+        /* Cambiar tamaño específico de la imagen UU.png */
+        .imagenes-container .imagen-uu {
+            width: 220px; /* Ajusta el ancho de la imagen UU */
+            height: auto; /* Mantiene la proporción */
+        }
+
         .telegram-boton {
             position: fixed;
             bottom: 20px;
@@ -51,7 +71,6 @@
         .telegram-boton:hover {
             background-color: #006fa1;
         }
-
     </style>
 </head>
 
@@ -60,7 +79,10 @@
         <h1>MLS / MX</h1>
     </div>
 
-    <img class="imagen" src="assets/images/TTT.png" alt="MLS_MX">
+    <div class="imagenes-container">
+        <img src="assets/images/TTT.png" alt="MLS_MX">
+        <img class="imagen-uu" src="assets/images/UU.png" alt="Otra imagen">
+    </div>
 
     <button class="telegram-boton" onclick="irATelegram()">Únete a nuestro grupo de Telegram</button>
 
