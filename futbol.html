@@ -21,23 +21,23 @@
             min-height: 100vh;
         }
 
-        /* Contenedor que alinea el título y el botón */
+        /* Contenedor que alinea el título y los botones */
         .titulo-boton-container {
             display: flex;
-            flex-direction: column; /* Cambia a columna en dispositivos móviles */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             margin-top: 20px;
-            gap: 20px; /* Espacio entre el título y el botón */
-            text-align: center; /* Alinea el texto al centro */
+            gap: 20px;
+            text-align: center;
         }
 
         .titulo-container {
             background-color: #ffffff;
             padding: 10px 20px;
             border-radius: 10px;
-            width: 90%; /* Ajusta el ancho en dispositivos móviles */
-            max-width: 400px; /* Mantiene el ancho máximo en pantallas grandes */
+            width: 90%;
+            max-width: 400px;
         }
 
         h1 {
@@ -45,19 +45,25 @@
             margin: 0;
         }
 
-        .btn-combi {
+        .botones-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espacio entre los botones */
+        }
+
+        .btn-combi, .btn-apuesta-dia {
             background-color: #ff6347;
             color: white;
             border: none;
             padding: 15px 30px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 18px; /* Botón más grande */
-            width: 90%; /* Ajusta el ancho en dispositivos móviles */
-            max-width: 300px; /* Mantiene el ancho máximo en pantallas grandes */
+            font-size: 18px;
+            width: 90%;
+            max-width: 300px;
         }
 
-        .btn-combi:hover {
+        .btn-combi:hover, .btn-apuesta-dia:hover {
             background-color: #ff4500;
         }
 
@@ -79,26 +85,30 @@
             order: 4;
         }
 
-        /* Estilos para pantallas pequeñas (móviles) */
         @media (max-width: 600px) {
             .titulo-boton-container {
-                flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-                gap: 10px; /* Reduce el espacio entre el título y el botón */
+                flex-direction: column;
+                gap: 10px;
             }
 
             .titulo-container {
-                width: 90%; /* Ajusta el ancho del título */
-                padding: 5px 10px; /* Reduce el padding en pantallas pequeñas */
+                width: 90%;
+                padding: 5px 10px;
             }
 
-            .btn-combi {
-                width: 90%; /* Ajusta el ancho del botón */
-                padding: 10px; /* Reduce el padding en pantallas pequeñas */
-                font-size: 16px; /* Ajusta el tamaño del texto en el botón */
+            .botones-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-combi, .btn-apuesta-dia {
+                width: 90%;
+                padding: 10px;
+                font-size: 16px;
             }
 
             .imagen {
-                width: 100%; /* Ajusta el tamaño de las imágenes en pantallas pequeñas */
+                width: 100%;
             }
         }
     </style>
@@ -116,16 +126,23 @@
         function abrirCombiSonadora() {
             window.open('combi-sonadora.html', '_blank');
         }
+
+        function abrirApuestaDelDia() {
+            window.open('apuesta-dia.html', '_blank');
+        }
     </script>
 </head>
 
 <body>
-    <!-- Contenedor que envuelve tanto el título como el botón -->
+    <!-- Contenedor que envuelve tanto el título como los botones -->
     <div class="titulo-boton-container">
         <div class="titulo-container">
             <h1>Contenido de Fútbol</h1>
         </div>
-        <button class="btn-combi" onclick="abrirCombiSonadora()">COMBI SOÑADORA</button>
+        <div class="botones-container">
+            <button class="btn-combi" onclick="abrirCombiSonadora()">COMBI SOÑADORA</button>
+            <button class="btn-apuesta-dia" onclick="abrirApuestaDelDia()">APUESTA DEL DÍA</button>
+        </div>
     </div>
 
     <div class="imagenes-container">
@@ -137,12 +154,10 @@
         <img class="imagen" id="brasil" src="assets/images/Brasil.jpg" alt="Brasil">
         <img class="imagen" id="afa" src="assets/images/Li.jpeg" alt="Li">
         <img class="imagen" id="uefa" src="assets/images/uefa.jpg" alt="UEFA">
-        <img class="imagen" id="conference" src="assets/images/Conference Lague.jpg" alt="Conference League"> 
+        <img class="imagen" id="conference" src="assets/images/Conference Lague.jpg" alt="Conference League">
         <img class="imagen" id="dimayor" src="assets/images/dimayor.jpg" alt="Dimayor">
         <img class="imagen" id="mlsmx" src="assets/images/Diseño sin título.png" alt="MLS_MX">
         <img class="imagen" id="ligaPortugal" src="assets/images/ligaportugal.png" alt="Portugal">
-         <!--<img class="imagen" id="ligaHolanda" src="assets/images/Liga Holanda.jpg" alt="Holanda">-->
-        <!--<img class="imagen" id="argentina" src="assets/images/Liga Argentina.png" alt="Argentina">-->
     </div>
 </body>
 
