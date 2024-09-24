@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serie A - Fútbol</title>
+    <title>Copa Sudamericana - Fútbol</title>
     <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
     <style>
         body {
@@ -15,7 +15,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #2aa5df;
+            background-color: #0366e7;
             margin: 0;
         }
 
@@ -34,10 +34,18 @@
             margin-bottom: 20px;
         }
 
-        /* Estilos para el botón de Telegram */
+        .imagen-container {
+            margin-top: 80px; /* Espacio para que no se superponga con el título */
+        }
+
+        .imagen-sudamericana {
+            width: 320px; /* Ajusta según sea necesario */
+            border-radius: 10px;
+        }
+
         .telegram-boton {
             position: fixed;
-            bottom: 20px; /* Posición del botón en la parte inferior */
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #0088cc;
@@ -52,19 +60,24 @@
         .telegram-boton:hover {
             background-color: #006fa1;
         }
+
+        @media (max-width: 600px) {
+            .imagen-sudamericana {
+                width: 90%; /* Adapta el tamaño de la imagen en móviles */
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="titulo-container">
-        <h1>Serie A</h1>
+        <h1>Copa Sudamericana</h1>
     </div>
-    <div class="imagen-container"></div>
+    <div class="imagen-container">
         <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
-        <img class="imagen-europa" src="assets/images/WW.png" alt="Logo de la Europa League">
+        <img class="imagen-sudamericana" src="assets/images/pp.png" alt="Logo de la Copa Sudamericana">
     </div>
 
-    <!-- Botón de Telegram -->
     <button class="telegram-boton" onclick="irATelegram()">Únete a nuestro grupo de Telegram</button>
 
     <script>
@@ -75,4 +88,3 @@
 </body>
 
 </html>
-
