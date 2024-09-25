@@ -13,10 +13,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
             background-color: rgb(15, 11, 48);
             margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden; /* Evita el desbordamiento horizontal */
         }
 
         .titulo-container {
@@ -27,35 +28,81 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
+            z-index: 10; /* Asegura que el título esté encima de otros elementos */
         }
 
         h1 {
             color: #000000;
-            margin-bottom: 20px;
+            margin: 0;
+        }
+
+        .contenedor-principal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 80px; /* Ajuste debajo del título */
+            padding-bottom: 100px; /* Espacio para el botón fijo de Telegram */
+            box-sizing: border-box;
         }
 
         .imagen-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 60%; /* Ajustado para dar más espacio a la imagen */
-            margin-top: 120px; /* Ajusta el margen superior según tus preferencias */
+            width: 100%;
+            height: auto;
+            overflow: hidden; /* Evita que la imagen se salga del contenedor */
         }
 
         .imagen-europa {
-            width: 70%; /* Ajustado el tamaño para que sea más pequeño */
+            max-width: 100%;
+            max-height: 70vh; /* Limita la altura máxima para evitar que sea demasiado grande */
             height: auto;
             border-radius: 10px;
         }
 
-        .boton-telegram {
-            margin-top: 20px; /* Ajusta la distancia desde la parte superior del botón de Telegram */
-            background-color: #0088cc; /* Color de fondo del botón de Telegram */
-            color: #ffffff; /* Color del texto del botón de Telegram */
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
+        .telegram-boton {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0088cc;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
             cursor: pointer;
+            z-index: 10; /* Asegura que el botón esté encima de otros elementos */
+        }
+
+        .telegram-boton:hover {
+            background-color: #006fa1;
+        }
+
+        /* Media queries para pantallas más pequeñas */
+        @media (max-width: 600px) {
+            .titulo-container {
+                width: 90%;
+                top: 10px; /* Reduce el espacio en la parte superior para móviles */
+            }
+
+            h1 {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .telegram-boton {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .imagen-europa {
+                max-width: 90%; /* Reduce el tamaño de la imagen en móviles */
+                max-height: 50vh; /* Reduce la altura en pantallas pequeñas */
+            }
         }
     </style>
 </head>
@@ -65,17 +112,17 @@
         <h1>Europa League</h1>
     </div>
 
-    <div class="imagen-container">
-        <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
-        <img class="imagen-europa" src="assets/images/europa_league_logo.png" alt="Logo de la Europa League">
+    <div class="contenedor-principal">
+        <div class="imagen-container">
+            <img class="imagen-europa" src="assets/images/gg.png" alt="Logo de la Europa League">
+        </div>
     </div>
 
-    <!-- Botón de Telegram -->
-    <div class="boton-telegram" onclick="unirteAlGrupo()">Únete a nuestro grupo de Telegram</div>
+    <button class="telegram-boton" onclick="unirteAlGrupo()">Únete a nuestro grupo de Telegram</button>
 
     <script>
         function unirteAlGrupo() {
-            window.open('https://t.me/+vdXdmjzUv6U1MzFh', '_blank'); /* Reemplaza con la URL de tu grupo de Telegram */
+            window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank'); /* Reemplaza con la URL de tu grupo de Telegram */
         }
     </script>
 </body>
