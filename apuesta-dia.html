@@ -14,7 +14,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #add8e6; /* Fondo azul claro */
+            justify-content: center; /* Centra verticalmente */
+            background-color: #000; /* Fondo negro */
             margin: 0;
             min-height: 100vh;
             color: #fff;
@@ -24,9 +25,10 @@
             background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid #FF5722; /* Borde neón */
+            box-shadow: 0 0 20px #FF5722, 0 0 40px #FF5722, 0 0 60px #FF5722; /* Sombra luminosa */
             max-width: 400px;
-            width: 90%;
+            width: 90%; /* Ajusta el ancho al 90% del contenedor */
             text-align: center;
             margin: 20px 0;
             transition: transform 0.3s;
@@ -57,7 +59,7 @@
             width: 100%;
             padding: 12px;
             border-radius: 10px;
-            border: 1px solid #ff4757;
+            border: 2px solid #FF5722; /* Borde del cuadro de contraseña */
             font-size: 16px;
             margin-bottom: 20px;
             background-color: rgba(255, 255, 255, 0.1);
@@ -72,7 +74,7 @@
         }
 
         .btn-acceder {
-            background-color: #ff4757;
+            background: linear-gradient(135deg, #FFC107, #FF5722); /* Degradado de los colores */
             color: white;
             padding: 15px 30px;
             border: none;
@@ -200,5 +202,3 @@
 </body>
 
 </html>
-
-

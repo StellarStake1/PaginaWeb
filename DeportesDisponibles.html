@@ -6,63 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deportes Disponibles</title>
-    <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
+    <link rel="icon" href="assets/images/LogaAa.png" type="image/png">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #000000;
-            background-image: url('assets/images/FondoC..jpg');
-            background-size: cover;
-            background-position: center;
+            background-color: #1a1a1d; /* Fondo oscuro y profesional */
             margin: 0;
-            position: relative;
         }
 
         h1 {
-            color: #000000;
-            margin-bottom: 20px;
-            text-align: center;
+            color: #ffffff; /* Título blanco */
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .titulo-container {
-            background-color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 10px;
+            padding: 20px 40px;
+            background-color: rgba(255, 87, 34, 0.9); /* Fondo con color vibrante */
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8); /* Sombra pronunciada para el marco */
+            margin-bottom: 30px;
         }
 
         .boton {
             margin-top: 15px;
-            background-color: orange;
+            background: linear-gradient(135deg, #FFC107, #FF5722);
             color: white;
-            border-radius: 10px;
-            font-size: 18px;
-            width: 180px;
-            height: 50px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            width: 200px;
+            height: 55px;
             cursor: pointer;
             border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .boton:hover {
-            background-color: #ff9900;
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 87, 34, 0.7);
         }
 
         .red-social {
             display: flex;
             justify-content: space-around;
-            width: 50%;
-            margin-top: 20px;
+            width: 60%;
+            margin-top: 25px;
         }
 
         .telegram, .gmail {
             background-size: cover;
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .telegram {
@@ -73,48 +76,16 @@
             background-image: url('assets/images/Mail.png');
         }
 
-        /* Estilo para los carteles */
-        .cartel {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 250px;
-            height: 400px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            z-index: 10;
-            box-shadow: 0 0 25px 10px rgba(255, 255, 255, 1); /* Efecto de resplandor fuerte */
-            border-radius: 10px;
+        .telegram:hover, .gmail:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255, 60, 0, 0.6);
         }
 
-        /* Cartel izquierda */
-        .cartel-izquierda {
-            left: 20px;
-            background-image: url('assets/images/LU.png');
-        }
-
-        /* Cartel derecha */
-        .cartel-derecha {
-            right: 20px;
-            background-image: url('assets/images/LU.png');
-        }
-
-        /* Clase para ocultar los carteles */
-        .ocultar {
-            display: none;
-        }
-
-        /* Para pantallas más pequeñas */
         @media (max-width: 768px) {
             .boton {
-                width: 160px;
-                height: 45px;
-                font-size: 16px;
-            }
-
-            .cartel {
                 width: 180px;
-                height: 300px;
+                height: 50px;
+                font-size: 1.1em;
             }
 
             .red-social {
@@ -122,29 +93,25 @@
             }
 
             .telegram, .gmail {
-                width: 40px;
-                height: 40px;
-            }
-
-            .cartel-izquierda, .cartel-derecha {
-                display: none; /* Esconde los carteles en pantallas pequeñas si ocupan demasiado espacio */
+                width: 45px;
+                height: 45px;
             }
         }
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 20px;
+                font-size: 1.8em;
             }
 
             .boton {
-                width: 150px;
-                height: 40px;
-                font-size: 14px;
+                width: 160px;
+                height: 45px;
+                font-size: 1em;
             }
 
             .telegram, .gmail {
-                width: 35px;
-                height: 35px;
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -191,10 +158,7 @@
         <div class="telegram" onclick="irATelegram()"></div>
         <div class="gmail" onclick="irAGmail()"></div>
     </div>
-
-    <!-- Carteles -->
-    <div class="cartel cartel-izquierda ocultar"></div>
-    <div class="cartel cartel-derecha ocultar"></div>
 </body>
 
 </html>
+

@@ -9,33 +9,30 @@
     <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #a0d8f1;
-            background-image: url('assets/images/FondoBal.jpg');
-            background-size: cover;
-            background-position: center;
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Color de texto blanco */
             margin: 0;
+            min-height: 100vh;
         }
 
         .titulo-container {
-            background-color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-align: center;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            padding: 20px 40px;
+            background-color: rgba(255, 87, 34, 0.9); /* Fondo con color vibrante */
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8); /* Sombra pronunciada para el marco */
+            margin-bottom: 30px;
+            margin-top: 50px; /* Bajar el título */
         }
 
         h1 {
-            color: #000000;
-            margin-bottom: 20px;
+            color: #ffffff; /* Título blanco */
+            margin: 0;
+            font-size: 2em; /* Tamaño de letra ajustado */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .imagenes-container {
@@ -48,31 +45,29 @@
 
         .imagen {
             border-radius: 10px;
-            width: 320px;
-            height: auto;
+            width: 320px; /* Tamaño base de las imágenes */
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 5px solid rgba(255, 255, 255, 0.8); /* Borde blanco */
         }
 
-        /* Ajusta el tamaño y la posición de la imagen Brasil */
-        .imagen#brasil {
-            order: 4; /* Cambia el orden para que aparezca debajo de la imagen Liga */
+        .imagen:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.8); /* Sombra más intensa al pasar el mouse */
+            border: 5px solid #FF6347; /* Borde neón al pasar el mouse */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .imagen {
+                width: 90%; /* Ajustar tamaño de las imágenes en móviles */
+            }
         }
     </style>
-    <script>
-        window.addEventListener('load', function () {
-            // Agrega un evento de clic a cada imagen
-            var imagenes = document.querySelectorAll('.imagen');
-            imagenes.forEach(function (imagen) {
-                imagen.addEventListener('click', function () {
-                    // Obtén el nombre de la imagen
-                    var nombreImagen = imagen.id.toLowerCase();
-
-                    // Abre la página correspondiente en una nueva pestaña
-                    window.open(nombreImagen + '.html', '_blank');
-                });
-            });
-        });
-    </script>
 </head>
 
 <body>

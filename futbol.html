@@ -9,61 +9,54 @@
     <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #a0d8f1;
-            background-image: url('assets/images/FondoFutbol.jpg');
-            background-size: cover;
-            background-position: center;
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Color de texto blanco */
             margin: 0;
             min-height: 100vh;
         }
 
-        .titulo-boton-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 20px;
-            text-align: center;
-        }
-
         .titulo-container {
-            background-color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
+            padding: 20px 40px;
+            background-color: rgba(255, 87, 34, 0.9); /* Fondo con color vibrante */
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8); /* Sombra pronunciada para el marco */
+            margin-bottom: 30px;
+            margin-top: 50px; /* Bajar el título */
         }
 
         h1 {
-            color: #000000;
+            color: #ffffff; /* Título blanco */
             margin: 0;
+            font-size: 2em; /* Tamaño de letra ajustado */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .botones-container {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            flex-direction: column; /* Cambiar a columna */
+            align-items: center; /* Centrar botones */
+            gap: 15px; /* Separación entre botones */
         }
 
-        .btn-combi, .btn-apuesta-dia {
-            background-color: #ff6347;
+        .boton {
+            background: linear-gradient(135deg, #FFC107, #FF5722); /* Degradado de los colores */
             color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 1em; /* Tamaño de letra ajustado */
+            width: 200px; /* Ancho del botón */
+            height: 55px; /* Altura del botón */
             cursor: pointer;
-            font-size: 18px;
-            width: 90%;
-            max-width: 300px;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .btn-combi:hover, .btn-apuesta-dia:hover {
-            background-color: #ff4500;
+        .boton:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 87, 34, 0.7);
         }
 
         .imagenes-container {
@@ -78,40 +71,43 @@
             border-radius: 10px;
             width: 320px;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 5px solid rgba(255, 255, 255, 0.8); /* Borde blanco */
         }
 
-        .imagen#brasil {
-            order: 4;
+        .imagen:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.8); /* Sombra más intensa al pasar el mouse */
+            border: 5px solid #FF6347; /* Borde neón al pasar el mouse */
         }
 
         @media (max-width: 600px) {
-            .titulo-boton-container {
-                flex-direction: column;
-                gap: 10px;
+            h1 {
+                font-size: 1.8em;
             }
 
-            .titulo-container {
+            .boton {
                 width: 90%;
-                padding: 5px 10px;
-            }
-
-            .botones-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .btn-combi, .btn-apuesta-dia {
-                width: 90%;
-                padding: 10px;
-                font-size: 16px;
+                height: 50px;
+                font-size: 1.1em;
             }
 
             .imagen {
-                width: 100%;
+                width: 90%; /* Aumentar el ancho de las imágenes en móviles */
+                max-width: 650px; /* Establecer un ancho máximo */
             }
         }
     </style>
     <script>
+        function abrirCombiSonadora() {
+            window.open('combi-sonadora.html', '_blank');
+        }
+
+        function abrirApuestaDelDia() {
+            window.open('apuesta-dia.html', '_blank');
+        }
+
         window.addEventListener('load', function () {
             var imagenes = document.querySelectorAll('.imagen');
             imagenes.forEach(function (imagen) {
@@ -121,26 +117,17 @@
                 });
             });
         });
-
-        function abrirCombiSonadora() {
-            window.open('combi-sonadora.html', '_blank');
-        }
-
-        function abrirApuestaDelDia() {
-            window.open('apuesta-dia.html', '_blank');
-        }
     </script>
 </head>
 
 <body>
-    <div class="titulo-boton-container">
-        <div class="titulo-container">
-            <h1>Contenido de Fútbol</h1>
-        </div>
-        <div class="botones-container">
-            <button class="btn-combi" onclick="abrirCombiSonadora()">COMBI SOÑADORA</button>
-            <button class="btn-apuesta-dia" onclick="abrirApuestaDelDia()">APUESTA DEL DÍA</button>
-        </div>
+    <div class="titulo-container">
+        <h1>Contenido de Fútbol</h1>
+    </div>
+
+    <div class="botones-container">
+        <button class="boton" onclick="abrirCombiSonadora()">COMBI SOÑADORA</button>
+        <button class="boton" onclick="abrirApuestaDelDia()">APUESTA DEL DÍA</button>
     </div>
 
     <div class="imagenes-container">
@@ -155,8 +142,6 @@
         <img class="imagen" id="conference" src="assets/images/Conference Lague.jpg" alt="Conference League">
         <img class="imagen" id="dimayor" src="assets/images/dimayor.jpg" alt="Dimayor">
         <img class="imagen" id="mlsmx" src="assets/images/Diseño sin título.png" alt="MLS_MX">
-        
-        <!-- Imágenes de la Copa Sudamericana y la Copa Libertadores acomodadas -->
         <img class="imagen" id="sudamericana" src="assets/images/SUDAMERICANA.jpg" alt="Copa Sudamericana">
         <img class="imagen" id="libertadores" src="assets/images/Libertadores.jpg" alt="Copa Libertadores">
     </div>
