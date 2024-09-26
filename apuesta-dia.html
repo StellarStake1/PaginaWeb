@@ -143,6 +143,16 @@
             transform: translateX(-50%);
             text-align: center;
         }
+        
+        .imagen-container {
+            display: none; /* Ocultar por defecto */
+            margin-top: 20px; /* Espaciado superior */
+        }
+
+        .imagen-europa {
+            max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
+        }
     </style>
     <script>
         function verificarContraseña() {
@@ -156,6 +166,7 @@
             const botonTelegram = document.querySelector(".btn-telegram");
             const tituloContainer = document.querySelector(".titulo-container");
             const mensajeBienvenida = document.getElementById("mensaje-bienvenida");
+            const imagenContainer = document.querySelector(".imagen-container");
 
             if (contraseñasPermitidas.includes(contraseña)) {
                 mensajeBienvenida.style.display = "block"; // Muestra el mensaje de bienvenida
@@ -165,6 +176,7 @@
                     document.getElementById("formulario").style.display = "none"; // Oculta el formulario
                     botonTelegram.style.display = "block"; // Muestra el botón de Telegram
                     tituloContainer.style.display = "block"; // Muestra el título
+                    imagenContainer.style.display = "block"; // Muestra la imagen
                 }, 2000); // Espera 2 segundos antes de mostrar el contenido
             } else {
                 errorMessage.style.display = "block"; // Muestra mensaje de error
@@ -195,10 +207,14 @@
     </div>
 
     <div id="contenido">
-        <!-- Se ha eliminado el mensaje de contenido exclusivo -->
+        <div class="imagen-container">
+            <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
+            <img class="imagen-europa" src="assets/images/UUU.png" alt="Logo de la Europa League">
+        </div>
     </div>
 
     <button class="btn-telegram" onclick="abrirTelegram()">Únete a nuestro grupo de Telegram</button>
 </body>
 
 </html>
+
