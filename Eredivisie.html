@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contenido de Fútbol - Brasileirão</title>
+    <title>Eredivisie</title>
     <link rel="icon" href="assets/images/LogaAa.png" type="image/x-icon">
     <style>
         body {
@@ -15,14 +15,14 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: rgb(60, 44, 148); /* Cambia el color de fondo a tu preferencia */
+            background-color: #ff6f00; /* Color de fondo para Eredivisie */
             margin: 0;
         }
 
         .titulo-container {
-            background-color: #ffffff; /* Color de fondo del cuadro */
-            padding: 10px 20px; /* Ajusta el espaciado interno del cuadro */
-            border-radius: 10px; /* Bordes redondeados */
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
             position: fixed;
             top: 20px;
             left: 50%;
@@ -34,22 +34,9 @@
             margin-bottom: 20px;
         }
 
-        .imagen-container {
-            display: flex;
-            justify-content: center; /* Asegura que la imagen esté centrada */
-            align-items: center;
-            flex-grow: 1;
-        }
-
-        .imagen-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
         .telegram-boton {
             position: fixed;
-            bottom: 20px; /* Posición del botón en la parte inferior */
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #0088cc;
@@ -70,12 +57,10 @@
 
 <body>
     <div class="titulo-container">
-        <h1>Brasileirão</h1>
+        <h1>Eredivisie</h1>
     </div>
 
-    <div class="imagen-container">
-        <img src="assets/images/WW.png" alt="Brasileirao Logo">
-    </div>
+    <img class="imagen" src="assets/images/HOLANDA.png" alt="Eredivisie">
 
     <button class="telegram-boton" onclick="irATelegram()">Únete a nuestro grupo de Telegram</button>
 

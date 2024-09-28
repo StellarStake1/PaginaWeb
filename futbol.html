@@ -13,42 +13,42 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #000; /* Fondo negro */
-            color: #fff; /* Color de texto blanco */
+            background-color: #000;
+            color: #fff;
             margin: 0;
             min-height: 100vh;
         }
 
         .titulo-container {
             padding: 20px 40px;
-            background-color: rgba(255, 87, 34, 0.9); /* Fondo con color vibrante */
+            background-color: rgba(255, 87, 34, 0.9);
             border-radius: 15px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8); /* Sombra pronunciada para el marco */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
             margin-bottom: 30px;
-            margin-top: 50px; /* Bajar el título */
+            margin-top: 50px;
         }
 
         h1 {
-            color: #ffffff; /* Título blanco */
+            color: #ffffff;
             margin: 0;
-            font-size: 2em; /* Tamaño de letra ajustado */
+            font-size: 2em;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .botones-container {
             display: flex;
-            flex-direction: column; /* Cambiar a columna */
-            align-items: center; /* Centrar botones */
-            gap: 15px; /* Separación entre botones */
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
 
         .boton {
-            background: linear-gradient(135deg, #FFC107, #FF5722); /* Degradado de los colores */
+            background: linear-gradient(135deg, #FFC107, #FF5722);
             color: white;
             border-radius: 8px;
-            font-size: 1em; /* Tamaño de letra ajustado */
-            width: 200px; /* Ancho del botón */
-            height: 55px; /* Altura del botón */
+            font-size: 1em;
+            width: 200px;
+            height: 55px;
             cursor: pointer;
             border: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -73,13 +73,13 @@
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 5px solid rgba(255, 255, 255, 0.8); /* Borde blanco */
+            border: 5px solid rgba(255, 255, 255, 0.8);
         }
 
         .imagen:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.8); /* Sombra más intensa al pasar el mouse */
-            border: 5px solid #FF6347; /* Borde neón al pasar el mouse */
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.8);
+            border: 5px solid #FF6347;
         }
 
         @media (max-width: 600px) {
@@ -94,8 +94,8 @@
             }
 
             .imagen {
-                width: 90%; /* Aumentar el ancho de las imágenes en móviles */
-                max-width: 650px; /* Establecer un ancho máximo */
+                width: 90%;
+                max-width: 650px;
             }
         }
     </style>
@@ -127,7 +127,7 @@
 
     <div class="botones-container">
         <button class="boton" onclick="abrirCombiSonadora()">COMBI SOÑADORA</button>
-        <button class="boton" onclick="abrirApuestaDelDia()">APUESTA DEL DÍA</button>
+        <button class="boton" onclick="abrirApuestaDelDía()">APUESTA DEL DÍA</button>
     </div>
 
     <div class="imagenes-container">
@@ -144,6 +144,7 @@
         <img class="imagen" id="mlsmx" src="assets/images/Diseño sin título.png" alt="MLS_MX">
         <img class="imagen" id="sudamericana" src="assets/images/SUDAMERICANA.jpg" alt="Copa Sudamericana">
         <img class="imagen" id="libertadores" src="assets/images/Libertadores.jpg" alt="Copa Libertadores">
+        <img class="imagen" id="eredivisie" src="assets/images/liga holandaa.jpg" alt="Eredivisie"> 
     </div>
 </body>
 
