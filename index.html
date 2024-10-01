@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StellarStake</title>
     <link rel="icon" href="assets/images/logo Tigre.png" type="image/x-icon">
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Open+Sans&display=swap');
 
@@ -19,7 +19,7 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #1a1a1d; /* Fondo oscuro y profesional */
+            background-color: #1a1a1d;
             color: white;
             display: flex;
             justify-content: center;
@@ -28,7 +28,6 @@
             overflow: hidden;
         }
 
-        /* Estilos del cuadro principal */
         .container {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -39,8 +38,8 @@
             animation: fadeIn 1.5s ease;
             max-width: 500px;
             width: 100%;
-            border: 2px solid #FF5722; /* Borde neón */
-            box-shadow: 0 0 20px #FF5722, 0 0 40px #FF5722, 0 0 60px #FF5722; /* Sombra luminosa */
+            border: 2px solid #FF5722;
+            box-shadow: 0 0 20px #FF5722, 0 0 40px #FF5722, 0 0 60px #FF5722;
         }
 
         @keyframes fadeIn {
@@ -82,7 +81,7 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #FFC107; /* Color vibrante */
+            color: #FFC107;
         }
 
         .register {
@@ -94,7 +93,7 @@
         .button {
             display: inline-block;
             padding: 15px 30px;
-            background: linear-gradient(135deg, #FFC107, #FF5722); /* Combinación de colores vibrantes */
+            background: linear-gradient(135deg, #FFC107, #FF5722);
             color: white;
             border: none;
             border-radius: 8px;
@@ -133,8 +132,8 @@
             text-align: center;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             animation: slideDown 0.5s ease;
-            border: 2px solid #FF5722; /* Borde neón */
-            box-shadow: 0 0 20px #FF5722, 0 0 40px #FF5722, 0 0 60px #FF5722; /* Sombra luminosa */
+            border: 2px solid #FF5722;
+            box-shadow: 0 0 20px #FF5722, 0 0 40px #FF5722, 0 0 60px #FF5722;
         }
 
         @keyframes slideDown {
@@ -152,13 +151,22 @@
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
-            color: #FFC107; /* Color vibrante */
+            color: #FFC107;
         }
 
         .modal-body {
             font-size: 18px;
             color: #ffffff;
             margin-bottom: 20px;
+        }
+
+        .age-input {
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            width: 100px;
         }
 
         .modal-buttons {
@@ -168,7 +176,7 @@
         }
 
         .modal-button {
-            background: linear-gradient(135deg, #FFC107, #FF5722); /* Combinación de colores vibrantes */
+            background: linear-gradient(135deg, #FFC107, #FF5722);
             color: white;
             padding: 10px 20px;
             font-size: 16px;
@@ -197,10 +205,12 @@
         <div class="modal-content">
             <div class="modal-header">StellarStake</div>
             <div class="modal-body">
-                Este sitio es exclusivo para mayores de edad. Las apuestas pueden ser adictivas, por lo que te recomendamos apostar con responsabilidad. ¡Diviértete, pero siempre con cuidado!
+                Este sitio es exclusivo para mayores de edad. Introduce tu edad para continuar.
+                <br><br>
+                <input type="number" id="age" class="age-input" placeholder="Tu edad">
             </div>
             <div class="modal-buttons">
-                <button class="modal-button" onclick="accept()">Aceptar</button>
+                <button class="modal-button" onclick="verifyAge()">Aceptar</button>
                 <button class="modal-button" onclick="cancel()">Cancelar</button>
             </div>
         </div>
@@ -211,9 +221,14 @@
             document.getElementById("myModal").style.display = "flex";
         }
 
-        function accept() {
-            document.getElementById("myModal").style.display = "none";
-            window.location.href = 'DeportesDisponibles.html';
+        function verifyAge() {
+            const age = document.getElementById('age').value;
+            if (age >= 18) {
+                document.getElementById("myModal").style.display = "none";
+                window.location.href = 'DeportesDisponibles.html';
+            } else {
+                alert("Debes tener al menos 18 años para acceder.");
+            }
         }
 
         function cancel() {
@@ -223,5 +238,4 @@
 </body>
 
 </html>
-
 
