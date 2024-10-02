@@ -160,15 +160,6 @@
             margin-bottom: 20px;
         }
 
-        .age-input {
-            font-size: 16px;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            margin-bottom: 20px;
-            width: 100px;
-        }
-
         .modal-buttons {
             display: flex;
             justify-content: space-between;
@@ -205,12 +196,10 @@
         <div class="modal-content">
             <div class="modal-header">StellarStake</div>
             <div class="modal-body">
-                Este sitio es exclusivo para mayores de edad. Introduce tu edad para continuar.
-                <br><br>
-                <input type="number" id="age" class="age-input" placeholder="Tu edad">
+                Este sitio es solo para mayores de 18 años debido a su contenido de apuestas deportivas. Haz clic en "Aceptar" para continuar.
             </div>
             <div class="modal-buttons">
-                <button class="modal-button" onclick="verifyAge()">Aceptar</button>
+                <button class="modal-button" onclick="redirect()">Aceptar</button>
                 <button class="modal-button" onclick="cancel()">Cancelar</button>
             </div>
         </div>
@@ -221,14 +210,8 @@
             document.getElementById("myModal").style.display = "flex";
         }
 
-        function verifyAge() {
-            const age = document.getElementById('age').value;
-            if (age >= 18) {
-                document.getElementById("myModal").style.display = "none";
-                window.location.href = 'DeportesDisponibles.html';
-            } else {
-                alert("Debes tener al menos 18 años para acceder.");
-            }
+        function redirect() {
+            window.location.href = 'DeportesDisponibles.html';
         }
 
         function cancel() {
@@ -238,4 +221,3 @@
 </body>
 
 </html>
-
