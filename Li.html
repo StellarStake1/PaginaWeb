@@ -17,7 +17,7 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            overflow-x: hidden; /* Evita el desbordamiento horizontal */
+            overflow-x: hidden;
         }
 
         .titulo-container {
@@ -28,7 +28,7 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 10; /* Asegura que el título esté encima de otros elementos */
+            z-index: 10;
         }
 
         h1 {
@@ -42,23 +42,34 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            margin-top: 80px; /* Ajuste debajo del título */
-            padding-bottom: 100px; /* Espacio para el botón fijo de Telegram */
+            margin-top: 80px;
+            padding-bottom: 100px;
             box-sizing: border-box;
         }
 
-        .imagen-container {
+        .imagenes-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
+            gap: 20px;
             width: 100%;
+            padding: 20px;
+            max-width: 1200px; /* Limitar el ancho del contenedor de imágenes */
+        }
+
+        .imagen-container {
+            flex: 1 1 calc(50% - 40px); /* Las imágenes ocuparán la mitad de la fila en pantallas grandes */
+            max-width: calc(50% - 40px);
             height: auto;
-            overflow: hidden; /* Evita que la imagen se salga del contenedor */
+            overflow: hidden;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center; /* Centra la imagen horizontalmente */
+            align-items: center; /* Centra la imagen verticalmente */
         }
 
         .imagen-europa {
-            max-width: 100%;
-            max-height: 70vh; /* Limita la altura máxima para evitar que sea demasiado grande */
+            width: 80%; /* Cambiado a un 80% para que las imágenes sean más grandes */
             height: auto;
             border-radius: 10px;
         }
@@ -75,7 +86,7 @@
             border-radius: 10px;
             font-size: 18px;
             cursor: pointer;
-            z-index: 10; /* Asegura que el botón esté encima de otros elementos */
+            z-index: 10;
         }
 
         .telegram-boton:hover {
@@ -83,10 +94,17 @@
         }
 
         /* Media queries para pantallas más pequeñas */
+        @media (max-width: 900px) {
+            .imagen-container {
+                flex: 1 1 calc(100% - 40px); /* Las imágenes ocuparán la mitad en pantallas medianas */
+                max-width: calc(100% - 40px);
+            }
+        }
+
         @media (max-width: 600px) {
             .titulo-container {
                 width: 90%;
-                top: 10px; /* Reduce el espacio en la parte superior para móviles */
+                top: 10px;
             }
 
             h1 {
@@ -99,9 +117,13 @@
                 padding: 10px 20px;
             }
 
+            .imagen-container {
+                flex: 1 1 calc(100% - 40px); /* Las imágenes ocuparán el 100% de la fila en pantallas pequeñas */
+                max-width: calc(100% - 40px);
+            }
+
             .imagen-europa {
-                max-width: 90%; /* Reduce el tamaño de la imagen en móviles */
-                max-height: 50vh; /* Reduce la altura en pantallas pequeñas */
+                width: 90%; /* Ajuste del ancho de la imagen en pantallas pequeñas */
             }
         }
     </style>
@@ -113,8 +135,13 @@
     </div>
 
     <div class="contenedor-principal">
-        <div class="imagen-container">
-            <img class="imagen-europa" src="assets/images/TR.png" alt="Logo de la Europa League">
+        <div class="imagenes-container">
+            <div class="imagen-container">
+                <img class="imagen-europa" src="assets/images/TR.png" alt="Logo de la Europa League">
+            </div>
+            <div class="imagen-container">
+                <img class="imagen-europa" src="assets/images/TR2.png" alt="Logo 2 de la Europa League">
+            </div>
         </div>
     </div>
 
@@ -122,9 +149,11 @@
 
     <script>
         function unirteAlGrupo() {
-            window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank'); /* Reemplaza con la URL de tu grupo de Telegram */
+            window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank');
         }
     </script>
 </body>
 
 </html>
+
+
