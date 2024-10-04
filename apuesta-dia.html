@@ -19,100 +19,64 @@
             margin: 0;
             min-height: 100vh;
             color: #fff;
+            overflow-x: hidden; /* Evita el desbordamiento horizontal */
         }
 
-        .form-container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 12px;
-            border: 2px solid #FF5722; /* Borde neón */
-            box-shadow: 0 0 20px #FF5722, 0 0 40px #FF5722, 0 0 60px #FF5722; /* Sombra luminosa */
-            max-width: 400px;
-            width: 90%; /* Ajusta el ancho al 90% del contenedor */
-            text-align: center;
-            margin: 20px 0;
-            transition: transform 0.3s;
-            box-sizing: border-box; /* Asegura que el padding no sume al ancho */
-        }
-
-        .form-container:hover {
-            transform: scale(1.05);
+        .titulo-container {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
         }
 
         h1 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, #ff4757, #ffa502);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #000000;
+            margin: 0;
         }
 
-        p {
-            margin-bottom: 20px;
-        }
-
-        input[type="password"] {
+        .contenedor-principal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 2px solid #FF5722; /* Borde del cuadro de contraseña */
-            font-size: 16px;
-            margin-bottom: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: border-color 0.3s, background-color 0.3s;
-            box-sizing: border-box; /* Asegura que el padding no sume al ancho */
+            margin-top: 80px; /* Espaciado para el título */
+            padding-bottom: 100px;
+            box-sizing: border-box;
         }
 
-        input[type="password"]:focus {
-            border-color: #ffa502;
-            outline: none;
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-acceder {
-            background: linear-gradient(135deg, #FFC107, #FF5722); /* Degradado de los colores */
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
+        .imagenes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
             width: 100%;
-            transition: background-color 0.3s;
-        }
-
-        .btn-acceder:hover {
-            background-color: #e84118;
-        }
-
-        .error-message {
-            display: none;
-            color: #ff6b81;
-            font-size: 14px;
-            margin-top: -10px;
-            margin-bottom: 20px;
-        }
-
-        #contenido {
-            display: none; /* Asegúrate de que el contenido esté oculto inicialmente */
-            text-align: center;
             padding: 20px;
+            max-width: 1200px; /* Limitar el ancho del contenedor de imágenes */
         }
 
-        #mensaje-bienvenida {
-            display: none; /* Oculta el mensaje de bienvenida inicialmente */
-            text-align: center;
-            padding: 20px;
-            font-size: 20px;
-            color: #fff;
+        .imagen-container {
+            flex: 1 1 calc(50% - 40px); /* Las imágenes ocuparán la mitad de la fila en pantallas grandes */
+            max-width: calc(50% - 40px);
+            height: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center; /* Centra la imagen horizontalmente */
+            align-items: center; /* Centra la imagen verticalmente */
+        }
+
+        .imagen-europa {
+            width: 80%; /* Cambiado a un 80% para que las imágenes sean más grandes */
+            height: auto;
+            border-radius: 10px;
         }
 
         .btn-telegram {
-            display: none; /* Oculta el botón de Telegram inicialmente */
             position: fixed;
             bottom: 20px;
             left: 50%;
@@ -124,69 +88,47 @@
             border-radius: 10px;
             font-size: 18px;
             cursor: pointer;
-            width: calc(100% - 40px);
-            transition: background 0.3s;
+            z-index: 10;
         }
 
         .btn-telegram:hover {
             background-color: #0077b3;
         }
 
-        .titulo-container {
-            display: none; /* Ocultar por defecto */
-            background-color: #ffffff; /* Color de fondo del cuadro */
-            padding: 10px 20px;
-            border-radius: 10px;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-        }
-        
-        .imagen-container {
-            display: none; /* Ocultar por defecto */
-            margin-top: 20px; /* Espaciado superior */
-        }
-
-        .imagen-europa {
-            max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
-        }
-    </style>
-    <script>
-        function verificarContraseña() {
-            const contraseña = document.getElementById("password").value;
-            const contraseñasPermitidas = [
-                "27891", "64329", "81573", "95218", "46082",
-                "73915", "12647", "58306", "39754", "01285",
-                "97894", "25801", "71943", "10251"
-            ];
-            const errorMessage = document.getElementById("error-message");
-            const botonTelegram = document.querySelector(".btn-telegram");
-            const tituloContainer = document.querySelector(".titulo-container");
-            const mensajeBienvenida = document.getElementById("mensaje-bienvenida");
-            const imagenContainer = document.querySelector(".imagen-container");
-
-            if (contraseñasPermitidas.includes(contraseña)) {
-                mensajeBienvenida.style.display = "block"; // Muestra el mensaje de bienvenida
-                setTimeout(() => {
-                    mensajeBienvenida.style.display = "none"; // Oculta el mensaje de bienvenida
-                    document.getElementById("contenido").style.display = "block"; // Muestra el contenido
-                    document.getElementById("formulario").style.display = "none"; // Oculta el formulario
-                    botonTelegram.style.display = "block"; // Muestra el botón de Telegram
-                    tituloContainer.style.display = "block"; // Muestra el título
-                    imagenContainer.style.display = "block"; // Muestra la imagen
-                }, 2000); // Espera 2 segundos antes de mostrar el contenido
-            } else {
-                errorMessage.style.display = "block"; // Muestra mensaje de error
+        /* Media queries para pantallas más pequeñas */
+        @media (max-width: 900px) {
+            .imagen-container {
+                flex: 1 1 calc(100% - 40px); /* Las imágenes ocuparán la mitad en pantallas medianas */
+                max-width: calc(100% - 40px);
             }
         }
 
-        function abrirTelegram() {
-            window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank');
+        @media (max-width: 600px) {
+            .titulo-container {
+                width: 90%;
+                top: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .btn-telegram {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .imagen-container {
+                flex: 1 1 calc(100% - 40px); /* Las imágenes ocuparán el 100% de la fila en pantallas pequeñas */
+                max-width: calc(100% - 40px);
+            }
+
+            .imagen-europa {
+                width: 90%; /* Ajuste del ancho de la imagen en pantallas pequeñas */
+            }
         }
-    </script>
+    </style>
 </head>
 
 <body>
@@ -194,27 +136,24 @@
         <h1>Apuestas del Día</h1>
     </div>
 
-    <div id="formulario" class="form-container">
-        <h1>Apuestas del Día</h1>
-        <p>Introduce la contraseña de 5 dígitos para acceder.</p>
-        <input type="password" id="password" placeholder="Introduce la contraseña">
-        <span id="error-message" class="error-message">Contraseña incorrecta. Inténtalo de nuevo.</span>
-        <button class="btn-acceder" onclick="verificarContraseña()">Acceder</button>
-    </div>
-
-    <div id="mensaje-bienvenida">
-        <p>¡Bienvenid@ a las Apuestas del Día!</p>
-    </div>
-
-    <div id="contenido">
-        <div class="imagen-container">
-            <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
-            <img class="imagen-europa" src="assets/images/UUU.png" alt="Logo de la Europa League">
+    <div class="contenedor-principal">
+        <div class="imagenes-container">
+            <div class="imagen-container">
+                <img class="imagen-europa" src="assets/images/UUU.png" alt="Descripción de la imagen 1">
+            </div>
+            <div class="imagen-container">
+                <img class="imagen-europa" src="assets/images/UUUU.png" alt="Descripción de la imagen 2">
+            </div>
         </div>
     </div>
 
     <button class="btn-telegram" onclick="abrirTelegram()">Únete a nuestro grupo de Telegram</button>
+
+    <script>
+        function abrirTelegram() {
+            window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank');
+        }
+    </script>
 </body>
 
 </html>
-
