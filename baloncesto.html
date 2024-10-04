@@ -68,6 +68,18 @@
             }
         }
     </style>
+    <script>
+        // Función para abrir una nueva página al hacer clic en las imágenes
+        window.addEventListener('load', function () {
+            var imagenes = document.querySelectorAll('.imagen');
+            imagenes.forEach(function (imagen) {
+                imagen.addEventListener('click', function () {
+                    var nombreImagen = imagen.alt.toLowerCase(); // Usa el "alt" de la imagen
+                    window.open(nombreImagen + '.html', '_blank'); // Abre la página correspondiente
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>

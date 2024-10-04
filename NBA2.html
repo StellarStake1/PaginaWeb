@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contenido de Baloncesto - Eu</title>
+    <title>NBA - Baloncesto</title>
     <link rel="icon" href="assets/images/logo Tigre.png" type="image/x-icon">
     <style>
         body {
@@ -15,14 +15,14 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: rgb(77, 78, 73); /* Cambia el color de fondo a tu preferencia */
+            background-color: #2aa5df;
             margin: 0;
         }
 
         .titulo-container {
-            background-color: #ffffff; /* Color de fondo del cuadro */
-            padding: 10px 20px; /* Ajusta el espaciado interno del cuadro */
-            border-radius: 10px; /* Bordes redondeados */
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
             position: fixed;
             top: 20px;
             left: 50%;
@@ -34,8 +34,35 @@
             margin-bottom: 20px;
         }
 
-        /* Agrega tus estilos específicos para la página "Pre" aquí */
+        /* Estilos para el botón de Telegram */
+        .telegram-boton {
+            position: fixed;
+            bottom: 20px; /* Posición del botón en la parte inferior */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0088cc;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
 
+        .telegram-boton:hover {
+            background-color: #006fa1;
+        }
+
+        .imagen-container {
+            margin-top: 100px; /* Ajustar margen superior */
+            text-align: center;
+        }
+
+        .imagen-nba {
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
@@ -43,7 +70,20 @@
     <div class="titulo-container">
         <h1>NBA</h1>
     </div>
-    <!-- Agrega el contenido específico para la imagen Pre aquí -->
+
+    <div class="imagen-container">
+        <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
+        <img class="imagen-nba" src="assets/images/NBAA.png" alt="Logo de la NBA">
+    </div>
+
+    <!-- Botón de Telegram -->
+    <button class="telegram-boton" onclick="irATelegram()">Únete a nuestro grupo de Telegram</button>
+
+    <script>
+        function irATelegram() {
+            window.open('https://t.me/+X8oJLoa9vUllNGYx');
+        }
+    </script>
 </body>
 
 </html>
