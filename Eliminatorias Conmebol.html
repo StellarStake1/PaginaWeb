@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conmebol</title>
+    <link rel="icon" href="assets/images/logo Tigre.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgb(21, 160, 79); /* Color de fondo */
+            margin: 0;
+        }
+
+        .titulo-container {
+            background-color: #ffffff; /* Color de fondo del cuadro */
+            padding: 10px 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1 {
+            color: #000000;
+            margin: 0;
+        }
+
+        .imagen-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px; /* Espacio suficiente para el título */
+            width: 100%;
+        }
+
+        .imagen-europa {
+            max-width: 100%;
+            height: auto;
+            max-height: calc(100vh - 160px); /* Ajusta el tamaño máximo de la imagen */
+            object-fit: contain;
+        }
+
+        .boton-telegram {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .boton-telegram:hover {
+            background-color: #006699;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="titulo-container">
+        <h1>Eliminatorias Conmebol</h1>
+    </div>
+
+    <div class="imagen-container">
+        <!-- Asegúrate de que la ruta de la imagen sea correcta -->
+        <img class="imagen-europa" src="assets/images/conmebol.png" alt="Logo de la Conmebol">
+    </div>
+
+    <button class="boton-telegram" onclick="irATelegram()">Únete a nuestro grupo de Telegram</button>
+
+    <script>
+        function irATelegram() {
+            window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank');
+        }
+    </script>
+</body>
+
+</html>

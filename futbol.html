@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible"="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fútbol</title>
     <link rel="icon" href="assets/images/logo Tigre.png" type="image/x-icon">
@@ -35,11 +35,12 @@
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
         }
 
+        /* Mantener la estructura original */
         .botones-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
             gap: 15px;
+            margin-bottom: 20px;
         }
 
         .boton {
@@ -97,6 +98,10 @@
                 width: 90%;
                 max-width: 650px;
             }
+
+            .botones-container {
+                flex-direction: column;
+            }
         }
     </style>
     <script>
@@ -106,6 +111,10 @@
 
         function abrirApuestaDelDia() {
             window.open('apuesta-dia.html', '_blank');
+        }
+
+        function abrirNuevoBoton() {
+            window.open('nuevo-contenido.html', '_blank');
         }
 
         window.addEventListener('load', function () {
@@ -125,7 +134,9 @@
         <h1>Contenido de Fútbol</h1>
     </div>
 
+    <!-- BOTONES -->
     <div class="botones-container">
+        <button class="boton" onclick="abrirNuevoBoton()">RETO ESCALERA</button>
         <button class="boton" onclick="abrirCombiSonadora()">COMBI SOÑADORA</button>
         <button class="boton" onclick="abrirApuestaDelDia()">APUESTA DEL DÍA</button>
     </div>
@@ -140,14 +151,12 @@
         <img class="imagen" id="afa" src="assets/images/Li.jpeg" alt="Li">
         <img class="imagen" id="uefa" src="assets/images/uefa.jpg" alt="UEFA">
         <img class="imagen" id="conference" src="assets/images/Conference Lague.jpg" alt="Conference League">
-        <!-- <img class="imagen" id="dimayor" src="assets/images/dimayor.jpg" alt="Dimayor"> -->
         <img class="imagen" id="mlsmx" src="assets/images/Diseño sin título.png" alt="MLS_MX">
         <img class="imagen" id="sudamericana" src="assets/images/SUDAMERICANA.jpg" alt="Copa Sudamericana">
         <img class="imagen" id="libertadores" src="assets/images/Libertadores.jpg" alt="Copa Libertadores">
         <img class="imagen" id="eredivisie" src="assets/images/liga holandaa.jpg" alt="Eredivisie">
-        <!-- Nuevas imágenes -->
         <img class="imagen" id="nations-league" src="assets/images/NATIONS LEAGUE.jpg" alt="Nations League">
-       <!-- <img class="imagen" id="eliminatorias-conmebol" src="assets/images/Conmbol.png" alt="Eliminatorias Conmebol">-->
+        <img class="imagen" id="eliminatorias-conmebol" src="assets/images/Conmbol.png" alt="Eliminatorias Conmebol">
     </div>
 </body>
 
