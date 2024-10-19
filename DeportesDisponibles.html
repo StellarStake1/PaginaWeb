@@ -61,150 +61,101 @@
             margin-top: 25px;
         }
 
-        .telegram, .gmail, .instagram {
+        .telegram,
+        .gmail,
+        .instagram,
+        .tiktok {
             background-size: cover;
-            width: 55px;
-            height: 55px;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .telegram {
             background-image: url('assets/images/TELE.png');
+            width: 55px; /* Tamaño de botón de Telegram */
+            height: 55px; /* Tamaño de botón de Telegram */
         }
 
         .gmail {
             background-image: url('assets/images/Mail.png');
+            width: 55px; /* Tamaño de botón de Gmail */
+            height: 55px; /* Tamaño de botón de Gmail */
         }
 
         .instagram {
             background-image: url('assets/images/descarga.png');
+            width: 55px; /* Tamaño de botón de Instagram */
+            height: 55px; /* Tamaño de botón de Instagram */
         }
 
-        .telegram:hover, .gmail:hover, .instagram:hover {
+        .tiktok {
+            background-image: url('assets/images/Tok.png'); /* Asegúrate de tener esta imagen */
+            width: 80px; /* Tamaño específico de botón de TikTok (puedes modificar este valor) */
+            height: 80px; /* Tamaño específico de botón de TikTok (puedes modificar este valor) */
+        }
+
+        .telegram:hover,
+        .gmail:hover,
+        .instagram:hover,
+        .tiktok:hover {
             transform: scale(1.1);
             box-shadow: 0 5px 20px rgba(255, 60, 0, 0.6);
         }
 
-        /* Estilos del modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-            max-width: 90%;
-            width: 400px;
-        }
-
-        .modal-content h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .modal-content button {
-            background-color: #FF5722;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .modal-content button:hover {
-            background-color: #E64A19;
-        }
-
-        /* Media Queries para pantallas pequeñas */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-
+        @media (max-width: 768px) {
             .boton {
-                width: 150px;
-                height: 45px;
-                font-size: 1em;
-            }
-
-            .titulo-container {
-                padding: 15px 30px;
+                width: 180px;
+                height: 50px;
+                font-size: 1.1em;
             }
 
             .red-social {
                 width: 80%;
             }
 
-            .telegram, .gmail, .instagram {
-                width: 45px;
+            .telegram,
+            .gmail,
+            .instagram,
+            .tiktok {
+                width: 50px;  /* Ajusta el tamaño en pantallas medianas */
+                height: 50px; /* Ajusta el tamaño en pantallas medianas */
+            }
+
+            .tiktok {
+                width: 80px; /* Tamaño específico de botón de TikTok */
+                height: 80px; /* Tamaño específico de botón de TikTok */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .boton {
+                width: 160px;
                 height: 45px;
+                font-size: 1em;
             }
 
-            .modal-content {
-                width: 90%;
-                padding: 15px;
+            .telegram,
+            .gmail,
+            .instagram,
+            .tiktok {
+                width: 40px; /* Tamaño ajustado para móviles */
+                height: 40px; /* Tamaño ajustado para móviles */
             }
 
-            .modal-content button {
-                padding: 8px 16px;
-                font-size: 0.9em;
+            .tiktok {
+                width: 60px; /* Tamaño específico de botón de TikTok para móviles */
+                height: 60px; /* Tamaño específico de botón de TikTok para móviles */
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <h2>Acceso al Formulario</h2>
-            <p>Para mejorar nuestro sitio, por favor, llena este formulario antes de continuar.</p>
-            <button onclick="accederFormulario()">Acceder al Formulario</button>
-        </div>
-    </div>
-
-    <div class="titulo-container">
-        <h1>Deportes Disponibles</h1>
-    </div>
-
-    <button class="boton" onclick="verFutbol()">Fútbol</button>
-    <button class="boton" onclick="verBaloncesto()">Baloncesto</button>
-    <button class="boton" onclick="verTenis()">Tenis</button>
-    <button class="boton" onclick="verFutbolFemenino()">Fútbol Femenino</button>
-
-    <div class="red-social">
-        <div class="gmail" onclick="irAGmail()"></div>
-        <div class="telegram" onclick="irATelegram()"></div>
-        <div class="instagram" onclick="irAInstagram()"></div>
-    </div>
-
     <script>
-        // Mostrar el modal cuando se carga la página
-        window.onload = function() {
-            document.getElementById('myModal').style.display = 'flex';
-        };
-
-        // Función para redirigir al formulario y cerrar el modal
-        function accederFormulario() {
-            window.open('https://forms.gle/3iJKkRbn1Gm9Lza17', '_blank');
-            document.getElementById('myModal').style.display = 'none';
-        }
-
         function verFutbol() {
             window.open('futbol.html', '_blank');
         }
@@ -232,7 +183,28 @@
         function irAInstagram() {
             window.open('https://www.instagram.com/strellastake/', '_blank');
         }
+
+        function irATikTok() {
+            window.open('https://www.tiktok.com/@capitan_del_futbol?_t=8qgYQoH1rza&_r=1', '_blank'); // Cambia la URL a tu cuenta de TikTok
+        }
     </script>
+
+    <!-- Contenido de Deportes Disponibles -->
+    <div class="titulo-container">
+        <h1>Deportes Disponibles</h1>
+    </div>
+    <button class="boton" onclick="verFutbol()">Fútbol</button>
+    <button class="boton" onclick="verBaloncesto()">Baloncesto</button>
+    <button class="boton" onclick="verTenis()">Tenis</button>
+    <button class="boton" onclick="verFutbolFemenino()">Fútbol Femenino</button>
+
+    <!-- Botones de Redes Sociales -->
+    <div class="red-social">
+        <div class="gmail" onclick="irAGmail()"></div>
+        <div class="telegram" onclick="irATelegram()"></div>
+        <div class="instagram" onclick="irAInstagram()"></div>
+        <div class="tiktok" onclick="irATikTok()"></div> <!-- Botón de TikTok -->
+    </div>
 </body>
 
 </html>
