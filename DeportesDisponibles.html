@@ -130,20 +130,20 @@
             background-color: #E64A19;
         }
 
-        /* Estilos para pantallas más pequeñas */
-        @media (max-width: 768px) {
+        /* Media Queries para pantallas pequeñas */
+        @media (max-width: 600px) {
             h1 {
-                font-size: 1.8em;
+                font-size: 2em;
+            }
+
+            .boton {
+                width: 150px;
+                height: 45px;
+                font-size: 1em;
             }
 
             .titulo-container {
                 padding: 15px 30px;
-            }
-
-            .boton {
-                font-size: 1em;
-                width: 180px;
-                height: 45px;
             }
 
             .red-social {
@@ -154,22 +154,15 @@
                 width: 45px;
                 height: 45px;
             }
-        }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5em;
+            .modal-content {
+                width: 90%;
+                padding: 15px;
             }
 
-            .boton {
+            .modal-content button {
+                padding: 8px 16px;
                 font-size: 0.9em;
-                width: 160px;
-                height: 40px;
-            }
-
-            .telegram, .gmail, .instagram {
-                width: 40px;
-                height: 40px;
             }
         }
     </style>
@@ -208,7 +201,7 @@
 
         // Función para redirigir al formulario y cerrar el modal
         function accederFormulario() {
-            window.open('https://forms.gle/3iJKkRbn1Gm9Lza17', '_blank'); // Cambia 'URL_DEL_FORMULARIO' por la URL real de tu formulario
+            window.open('https://forms.gle/3iJKkRbn1Gm9Lza17', '_blank');
             document.getElementById('myModal').style.display = 'none';
         }
 
