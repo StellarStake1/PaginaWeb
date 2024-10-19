@@ -86,44 +86,89 @@
             box-shadow: 0 5px 20px rgba(255, 60, 0, 0.6);
         }
 
-        @media (max-width: 768px) {
-            .boton {
-                width: 180px;
-                height: 50px;
-                font-size: 1.1em;
-            }
-
-            .red-social {
-                width: 80%;
-            }
-
-            .telegram, .gmail, .instagram {
-                width: 45px;
-                height: 45px;
-            }
+        /* Estilos del modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8em;
-            }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+            max-width: 90%;
+            width: 400px;
+        }
 
-            .boton {
-                width: 160px;
-                height: 45px;
-                font-size: 1em;
-            }
+        .modal-content h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-            .telegram, .gmail, .instagram {
-                width: 40px;
-                height: 40px;
-            }
+        .modal-content button {
+            background-color: #FF5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content button:hover {
+            background-color: #E64A19;
         }
     </style>
 </head>
 
 <body>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h2>Acceso al Formulario</h2>
+            <p>Para mejorar nuestro sitio, por favor, llena este formulario antes de continuar.</p>
+            <button onclick="accederFormulario()">Acceder al Formulario</button>
+        </div>
+    </div>
+
+    <div class="titulo-container">
+        <h1>Deportes Disponibles</h1>
+    </div>
+
+    <button class="boton" onclick="verFutbol()">Fútbol</button>
+    <button class="boton" onclick="verBaloncesto()">Baloncesto</button>
+    <button class="boton" onclick="verTenis()">Tenis</button>
+    <button class="boton" onclick="verFutbolFemenino()">Fútbol Femenino</button>
+
+    <div class="red-social">
+        <div class="gmail" onclick="irAGmail()"></div>
+        <div class="telegram" onclick="irATelegram()"></div>
+        <div class="instagram" onclick="irAInstagram()"></div>
+    </div>
+
     <script>
+        // Mostrar el modal cuando se carga la página
+        window.onload = function() {
+            document.getElementById('myModal').style.display = 'flex';
+        };
+
+        // Función para redirigir al formulario y cerrar el modal
+        function accederFormulario() {
+            window.open('https://forms.gle/3iJKkRbn1Gm9Lza17', '_blank'); // Cambia 'URL_DEL_FORMULARIO' por la URL real de tu formulario
+            document.getElementById('myModal').style.display = 'none';
+        }
+
         function verFutbol() {
             window.open('futbol.html', '_blank');
         }
@@ -152,22 +197,6 @@
             window.open('https://www.instagram.com/strellastake/', '_blank');
         }
     </script>
-
-    <!-- Contenido de Deportes Disponibles -->
-    <div class="titulo-container">
-        <h1>Deportes Disponibles</h1>
-    </div>
-    <button class="boton" onclick="verFutbol()">Fútbol</button>
-    <button class="boton" onclick="verBaloncesto()">Baloncesto</button>
-    <button class="boton" onclick="verTenis()">Tenis</button>
-    <button class="boton" onclick="verFutbolFemenino()">Fútbol Femenino</button>
-
-    <!-- Botones de Redes Sociales -->
-    <div class="red-social">
-        <div class="gmail" onclick="irAGmail()"></div>
-        <div class="telegram" onclick="irATelegram()"></div>
-        <div class="instagram" onclick="irAInstagram()"></div>
-    </div>
 </body>
 
 </html>
