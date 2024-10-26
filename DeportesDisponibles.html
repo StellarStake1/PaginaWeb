@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deportes Disponibles</title>
     <link rel="icon" href="assets/images/logo Tigre.png" type="image/png">
-
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,30 +16,33 @@
             height: 100vh;
             background-color: #1a1a1d;
             margin: 0;
+            padding: 20px; /* Agregamos un padding para los bordes en dispositivos móviles */
+            color: white; /* Establecer color de texto por defecto */
         }
 
         h1 {
-            color: #ffffff;
             margin: 0;
             font-size: 2.5em;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            padding-bottom: 20px; /* Espacio adicional entre el título y los botones */
         }
 
         .titulo-container {
-            padding: 20px 40px;
+            padding: 20px;
             background-color: rgba(255, 87, 34, 0.9);
             border-radius: 15px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-            margin-bottom: 30px;
+            text-align: center;
         }
 
         .boton {
-            margin-top: 15px;
+            margin: 10px 0; /* Espacio entre botones */
             background: linear-gradient(135deg, #FFC107, #FF5722);
             color: white;
             border-radius: 8px;
             font-size: 1.2em;
-            width: 200px;
+            width: 100%;
+            max-width: 250px; /* Max width para que no sea demasiado grande en pantallas grandes */
             height: 55px;
             cursor: pointer;
             border: none;
@@ -55,100 +56,78 @@
 
         .red-social {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
-            width: 60%;
+            gap: 20px; /* Espacio entre íconos de redes sociales */
             margin-top: 25px;
         }
 
-        .telegram,
-        .gmail,
-        .instagram,
-        .tiktok {
+        .red-social div {
             background-size: cover;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 50%; /* Íconos circulares */
         }
 
         .telegram {
             background-image: url('assets/images/TELE.png');
-            width: 55px; /* Tamaño de botón de Telegram */
-            height: 55px; /* Tamaño de botón de Telegram */
-        }
-
-        .gmail {
-            background-image: url('assets/images/Mail.png');
-            width: 55px; /* Tamaño de botón de Gmail */
-            height: 55px; /* Tamaño de botón de Gmail */
+            width: 55px;
+            height: 55px;
         }
 
         .instagram {
             background-image: url('assets/images/descarga.png');
-            width: 55px; /* Tamaño de botón de Instagram */
-            height: 55px; /* Tamaño de botón de Instagram */
+            width: 55px;
+            height: 55px;
         }
 
         .tiktok {
-            background-image: url('assets/images/Tok.png'); /* Asegúrate de tener esta imagen */
-            width: 80px; /* Tamaño específico de botón de TikTok (puedes modificar este valor) */
-            height: 80px; /* Tamaño específico de botón de TikTok (puedes modificar este valor) */
+            background-image: url('assets/images/Tok.png');
+            width: 70px; /* Cambié el tamaño para mantener proporciones */
+            height: 70px;
+            position: relative; /* Posicionar el letrero relativo al contenedor */
         }
 
-        .telegram:hover,
-        .gmail:hover,
-        .instagram:hover,
-        .tiktok:hover {
+        .telegram:hover, .instagram:hover, .tiktok:hover {
             transform: scale(1.1);
             box-shadow: 0 5px 20px rgba(255, 60, 0, 0.6);
         }
 
-        @media (max-width: 768px) {
-            .boton {
-                width: 180px;
-                height: 50px;
-                font-size: 1.1em;
-            }
-
-            .red-social {
-                width: 80%;
-            }
-
-            .telegram,
-            .gmail,
-            .instagram,
-            .tiktok {
-                width: 50px;  /* Ajusta el tamaño en pantallas medianas */
-                height: 50px; /* Ajusta el tamaño en pantallas medianas */
-            }
-
-            .tiktok {
-                width: 80px; /* Tamaño específico de botón de TikTok */
-                height: 80px; /* Tamaño específico de botón de TikTok */
-            }
+        /* Estilos del letrero */
+        .tiktok-message {
+            position: absolute;
+            bottom: 90px; /* Ajustamos la posición para que no tape el botón */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #FF5722;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: slideIn 1s forwards, fadeOut 0.5s 8s forwards; /* Ajustado para que el letrero dure 8 segundos */
+            text-align: center;
+            font-weight: bold; /* Para que el texto sea más llamativo */
+            z-index: 1; /* Asegura que esté por encima de otros elementos */
         }
 
-        @media (max-width: 480px) {
+        @keyframes slideIn {
+            from { opacity: 0; transform: translate(-50%, -10px); }
+            to { opacity: 1; transform: translateX(-50%); }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+
+        /* Estilos para pantallas pequeñas */
+        @media (max-width: 600px) {
             h1 {
-                font-size: 1.8em;
+                font-size: 2em; /* Ajustar tamaño de fuente en móviles */
             }
-
             .boton {
-                width: 160px;
-                height: 45px;
-                font-size: 1em;
-            }
-
-            .telegram,
-            .gmail,
-            .instagram,
-            .tiktok {
-                width: 40px; /* Tamaño ajustado para móviles */
-                height: 40px; /* Tamaño ajustado para móviles */
-            }
-
-            .tiktok {
-                width: 60px; /* Tamaño específico de botón de TikTok para móviles */
-                height: 60px; /* Tamaño específico de botón de TikTok para móviles */
+                font-size: 1em; /* Ajustar tamaño de fuente en botones */
             }
         }
     </style>
@@ -156,55 +135,35 @@
 
 <body>
     <script>
-        function verFutbol() {
-            window.open('futbol.html', '_blank');
-        }
+        function verFutbol() { window.open('futbol.html', '_blank'); }
+        function verBaloncesto() { window.open('baloncesto.html', '_blank'); }
+        function verTenis() { window.open('tenis.html', '_blank'); }
+        function verFutbolFemenino() { window.open('futbol_femenino.html', '_blank'); }
+        function irATelegram() { window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank'); }
+        function irAInstagram() { window.open('https://www.instagram.com/strellastake/', '_blank'); }
+        function irATikTok() { window.open('https://www.tiktok.com/@capitan_del_futbol?_t=8qgYQoH1rza&_r=1', '_blank'); }
 
-        function verBaloncesto() {
-            window.open('baloncesto.html', '_blank');
-        }
-
-        function verTenis() {
-            window.open('tenis.html', '_blank');
-        }
-
-        function verFutbolFemenino() {
-            window.open('futbol_femenino.html', '_blank');
-        }
-
-        function irATelegram() {
-            window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank');
-        }
-
-        function irAGmail() {
-            window.location.href = 'mailto:strellastake@gmail.com';
-        }
-
-        function irAInstagram() {
-            window.open('https://www.instagram.com/strellastake/', '_blank');
-        }
-
-        function irATikTok() {
-            window.open('https://www.tiktok.com/@capitan_del_futbol?_t=8qgYQoH1rza&_r=1', '_blank'); // Cambia la URL a tu cuenta de TikTok
-        }
+        window.onload = function() {
+            const message = document.querySelector('.tiktok-message');
+            message.style.display = 'block';
+        };
     </script>
 
-    <!-- Contenido de Deportes Disponibles -->
     <div class="titulo-container">
         <h1>Deportes Disponibles</h1>
     </div>
+
     <button class="boton" onclick="verFutbol()">Fútbol</button>
     <button class="boton" onclick="verBaloncesto()">Baloncesto</button>
     <button class="boton" onclick="verTenis()">Tenis</button>
     <button class="boton" onclick="verFutbolFemenino()">Fútbol Femenino</button>
 
-    <!-- Botones de Redes Sociales -->
     <div class="red-social">
-        <div class="gmail" onclick="irAGmail()"></div>
-        <div class="telegram" onclick="irATelegram()"></div>
         <div class="instagram" onclick="irAInstagram()"></div>
-        <div class="tiktok" onclick="irATikTok()"></div> <!-- Botón de TikTok -->
+        <div class="telegram" onclick="irATelegram()"></div>
+        <div class="tiktok" onclick="irATikTok()">
+            <div class="tiktok-message">¡Subimos nuevo video! 🎬</div>
+        </div>
     </div>
 </body>
-
 </html>
