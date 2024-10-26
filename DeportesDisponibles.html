@@ -16,33 +16,30 @@
             height: 100vh;
             background-color: #1a1a1d;
             margin: 0;
-            padding: 20px; /* Agregamos un padding para los bordes en dispositivos móviles */
-            color: white; /* Establecer color de texto por defecto */
         }
 
         h1 {
+            color: #ffffff;
             margin: 0;
             font-size: 2.5em;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-            padding-bottom: 20px; /* Espacio adicional entre el título y los botones */
         }
 
         .titulo-container {
-            padding: 20px;
+            padding: 20px 40px;
             background-color: rgba(255, 87, 34, 0.9);
             border-radius: 15px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
-            text-align: center;
+            margin-bottom: 30px;
         }
 
         .boton {
-            margin: 10px 0; /* Espacio entre botones */
+            margin-top: 15px;
             background: linear-gradient(135deg, #FFC107, #FF5722);
             color: white;
             border-radius: 8px;
             font-size: 1.2em;
-            width: 100%;
-            max-width: 250px; /* Max width para que no sea demasiado grande en pantallas grandes */
+            width: 200px;
             height: 55px;
             cursor: pointer;
             border: none;
@@ -58,15 +55,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px; /* Espacio entre íconos de redes sociales */
+            gap: 40px;
             margin-top: 25px;
+            position: relative;
         }
 
-        .red-social div {
+        .telegram, .instagram, .tiktok {
             background-size: cover;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 50%; /* Íconos circulares */
         }
 
         .telegram {
@@ -82,10 +79,10 @@
         }
 
         .tiktok {
+            position: relative;
             background-image: url('assets/images/Tok.png');
-            width: 70px; /* Cambié el tamaño para mantener proporciones */
-            height: 70px;
-            position: relative; /* Posicionar el letrero relativo al contenedor */
+            width: 80px;
+            height: 80px;
         }
 
         .telegram:hover, .instagram:hover, .tiktok:hover {
@@ -96,39 +93,33 @@
         /* Estilos del letrero */
         .tiktok-message {
             position: absolute;
-            bottom: 90px; /* Ajustamos la posición para que no tape el botón */
+            bottom: 90px; /* Ajustamos la posición para que aparezca encima del botón */
             left: 50%;
             transform: translateX(-50%);
             background-color: #FF5722;
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 1.1em;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 60px; /* Ajustamos el ancho */
+            height: 60px; /* Ajustamos la altura para hacerlo redondo */
+            border-radius: 50%; /* Hacemos el letrero completamente redondo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8em; /* Tamaño de fuente más pequeño */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
             opacity: 0;
-            animation: slideIn 1s forwards, fadeOut 0.5s 8s forwards; /* Ajustado para que el letrero dure 8 segundos */
+            animation: slideIn 1s forwards, fadeOut 0.5s 8s forwards; /* Aumentamos el tiempo de espera antes de que desaparezca */
             text-align: center;
-            font-weight: bold; /* Para que el texto sea más llamativo */
-            z-index: 1; /* Asegura que esté por encima de otros elementos */
+            font-weight: bold;
+            z-index: 1;
         }
 
         @keyframes slideIn {
-            from { opacity: 0; transform: translate(-50%, -10px); }
-            to { opacity: 1; transform: translateX(-50%); }
+            from { opacity: 0; transform: translate(10px, -10px); }
+            to { opacity: 1; transform: translate(0, 0); }
         }
 
         @keyframes fadeOut {
             to { opacity: 0; }
-        }
-
-        /* Estilos para pantallas pequeñas */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em; /* Ajustar tamaño de fuente en móviles */
-            }
-            .boton {
-                font-size: 1em; /* Ajustar tamaño de fuente en botones */
-            }
         }
     </style>
 </head>
@@ -145,7 +136,7 @@
 
         window.onload = function() {
             const message = document.querySelector('.tiktok-message');
-            message.style.display = 'block';
+            message.style.display = 'flex';
         };
     </script>
 
