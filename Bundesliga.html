@@ -15,14 +15,14 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: rgb(66, 7, 202); /* Cambia el color de fondo a tu preferencia */
+            background-color: rgb(66, 7, 202);
             margin: 0;
         }
 
         .titulo-container {
-            background-color: #ffffff; /* Color de fondo del cuadro */
-            padding: 10px 20px; /* Ajusta el espaciado interno del cuadro */
-            border-radius: 10px; /* Bordes redondeados */
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
             position: fixed;
             top: 20px;
             left: 50%;
@@ -34,9 +34,23 @@
             margin-bottom: 20px;
         }
 
+        .imagen-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            margin-top: 80px; /* Asegura que la imagen no se solape con el título */
+        }
+
+        .imagen-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
         .telegram-boton {
             position: fixed;
-            bottom: 20px; /* Posición del botón en la parte inferior */
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background-color: #0088cc;
@@ -51,7 +65,6 @@
         .telegram-boton:hover {
             background-color: #006fa1;
         }
-
     </style>
 </head>
 
@@ -59,12 +72,11 @@
     <div class="titulo-container">
         <h1>Bundesliga</h1>
     </div>
-    <div class="imagen-container"></div>
-        <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
-        <img class="imagen-europa" src="/assets/images/WW.png" alt="Logo de la Europa League">
-        
-
+    
+    <div class="imagen-container">
+        <img src="/assets/images/WW.png" alt="Logo de la Europa League">
     </div>
+
     <button class="telegram-boton" onclick="irATelegram()">Únete a nuestro grupo de Telegram</button>
 
     <script>
@@ -75,4 +87,5 @@
 </body>
 
 </html>
+
 
