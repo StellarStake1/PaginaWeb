@@ -98,16 +98,17 @@
             transform: translateX(-50%);
             background-color: #FF5722;
             color: white;
-            width: 60px; /* Ajustamos el ancho */
-            height: 60px; /* Ajustamos la altura para hacerlo redondo */
-            border-radius: 50%; /* Hacemos el letrero completamente redondo */
+            width: auto; /* Ajustamos el ancho para que se ajuste al texto */
+            height: auto; /* Ajustamos la altura para que se ajuste al texto */
+            padding: 10px 15px; /* Agregamos padding para un mejor aspecto */
+            border-radius: 15px; /* Hacemos las esquinas redondeadas */
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 0.8em; /* Tamaño de fuente más pequeño */
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
             opacity: 0;
-            animation: slideIn 1s forwards, fadeOut 0.5s 8s forwards; /* Aumentamos el tiempo de espera antes de que desaparezca */
+            animation: slideIn 1s forwards, fadeOut 0.5s 9s forwards; /* Aumentamos el tiempo de espera antes de que desaparezca */
             text-align: center;
             font-weight: bold;
             z-index: 1;
@@ -153,7 +154,7 @@
         <div class="instagram" onclick="irAInstagram()"></div>
         <div class="telegram" onclick="irATelegram()"></div>
         <div class="tiktok" onclick="irATikTok()">
-            <div class="tiktok-message">¡Subimos nuevo video! 🎬</div>
+            <div class="tiktok-message">¡Video análisis partido Arsenal vs Liverpool! 🎬</div>
         </div>
     </div>
 </body>
