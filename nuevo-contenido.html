@@ -7,123 +7,260 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RETO ESCALERA</title>
     <link rel="icon" href="assets/images/logo Tigre.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
+            background-color: #282c34;
             color: white;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-top: 20px;
-            color: #FFC107;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-        }
-
-        .seccion {
-            display: flex;
             justify-content: center;
-            align-items: center;
-            margin: 40px 0;
-            width: 90%;
-            max-width: 800px; /* Limitar el ancho máximo */
+            overflow-y: scroll;
+        }
+
+        .tuclase {
+            text-align: center;
+            font-family: Arial Black;
+            font-weight: bold;
+            font-size: 50px;
+            color: #fff;
+            text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #acacac, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.2), 0 20px 20px rgba(0,0,0,0.15);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-family: Arial Black;
+            font-weight: bold;
+            font-size: 40px; /* Tamaño del subtítulo más pequeño */
+            color: #FFD700; /* Color dorado */
+            text-shadow: 0 1px 0 #ccc, 0 2px 0 #bbb, 0 3px 0 #aaa, 0 4px 0 #999, 0 5px 0 #888, 0 6px 1px rgba(0,0,0,0.2);
+            margin-top: 10px;
+        }
+
+        .carousel-container {
             position: relative;
-            overflow: hidden; /* Oculta imágenes fuera de vista */
-            border-radius: 15px; /* Bordes redondeados */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+            width: 90%;
+            max-width: 600px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
         }
 
-        .tarjeta-testimonio {
-            padding: 20px;
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 15px;
+            flex: 0 0 100%;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 15px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        .carousel-button.prev {
+            left: 15px;
+        }
+
+        .carousel-button.next {
+            right: 15px;
+        }
+
+        .dots {
             display: flex;
             justify-content: center;
-            align-items: center;
+            margin-top: 15px;
         }
 
-        .tarjeta-testimonio img {
-            width: 100%; /* Ajusta la imagen al 100% del contenedor */
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra para la imagen */
-            border: 3px solid #FFC107; /* Bordes dorados */
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #555;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        /* Estilos para la sección de apuestas realizadas */
-        .apuestas-realizadas {
-            display: flex; /* Cambiado a flex */
-            flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan en varias líneas */
-            justify-content: center; /* Centrar elementos */
-            margin: 40px 0;
-            width: 90%;
-            max-width: 800px;
-            border: 2px solid red; /* Borde rojo más pequeño */
-            border-radius: 10px; /* Bordes redondeados */
-            padding: 10px; /* Espaciado interno reducido */
-            background-color: #1E1E1E; /* Fondo oscuro */
+        .dot:hover {
+            transform: scale(1.2);
         }
 
-        .tarjeta-apuesta {
-            background-color: #1E1E1E; /* Fondo oscuro */
+        .active-dot {
+            background-color: #FFD700;
+            transform: scale(1.4);
+        }
+
+        .dates {
+            margin-top: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            color: #ffffff;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            margin: 10px; /* Espacio entre las tarjetas */
-            width: 300px; /* Ancho fijo para todas las tarjetas */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
-        .tarjeta-apuesta img {
-            width: 100%; /* Ajusta la imagen al 100% del contenedor */
-            height: auto; /* Mantiene la proporción de aspecto */
-            border-radius: 10px; /* Bordes redondeados */
+        @media (max-width: 600px) {
+            .tuclase {
+                font-size: 1.5em;
+            }
+
+            .subtitle {
+                font-size: 24px; 
+            }
+
+            .carousel-button {
+                padding: 10px;
+                font-size: 20px;
+            }
+
+            .dot {
+                height: 8px;
+                width: 8px;
+            }
+
+            .dates {
+                font-size: 18px;
+            }
         }
     </style>
+    
 </head>
 
 <body>
-    <h1>RETO ESCALERA</h1>
+    <div class="tuclase">RETO ESCALERA</div>
+    <div class="subtitle">Grupo Profesional</div>
 
-    <section class="seccion testimonios">
-        <div class="tarjeta-testimonio">
-            <img src="assets/images/T1.jpg" alt="Testimonio 1">
+    <!-- Carrusel de testimonios -->
+    <div class="carousel-container" id="carousel-testimonios">
+        <div class="carousel-images">
+            <img src="assets/images/T1.jpg" alt="Testimonio 1" class="carousel-image">
+            <img src="assets/images/T2.jpg" alt="Testimonio 2" class="carousel-image">
+            <img src="assets/images/T3.jpg" alt="Testimonio 3" class="carousel-image">
+            <img src="assets/images/T4.jpg" alt="Testimonio 4" class="carousel-image">
+            <img src="assets/images/T5.jpg" alt="Testimonio 5" class="carousel-image">
+            <img src="assets/images/T6.jpg" alt="Testimonio 6" class="carousel-image">
+            <img src="assets/images/T7.jpg" alt="Testimonio 7" class="carousel-image">
+            <img src="assets/images/T8.jpeg" alt="Testimonio 8" class="carousel-image">
+            <img src="assets/images/T9.jpg" alt="Testimonio 9" class="carousel-image">
+            <img src="assets/images/T10.jpg" alt="Testimonio 10" class="carousel-image">
+            <img src="assets/images/T11.jpg" alt="Testimonio 11" class="carousel-image">
+            <img src="assets/images/T12.jpg" alt="Testimonio 12" class="carousel-image">
+            <img src="assets/images/T13.jpg" alt="Testimonio 13" class="carousel-image">
+            <img src="assets/images/T14.jpg" alt="Testimonio 14" class="carousel-image">
+            <img src="assets/images/T15.jpg" alt="Testimonio 15" class="carousel-image">
+            <img src="assets/images/T16.jpg" alt="Testimonio 16" class="carousel-image">
+            <img src="assets/images/T17.jpg" alt="Testimonio 17" class="carousel-image">
+            <img src="assets/images/T18.jpg" alt="Testimonio 18" class="carousel-image">
+            <img src="assets/images/T19.jpg" alt="Testimonio 19" class="carousel-image">
+            <img src="assets/images/T20.jpg" alt="Testimonio 20" class="carousel-image">
+            <img src="assets/images/T21.jpg" alt="Testimonio 21" class="carousel-image">
         </div>
-    </section>
+        <button class="carousel-button prev">&#10094;</button>
+        <button class="carousel-button next">&#10095;</button>
+    </div>
+    <div class="dots" id="dots-testimonios"></div>
 
-    <section class="apuestas-realizadas">
-        <h2>Apuestas Realizadas</h2>
-        <div class="tarjeta-apuesta">
-            <img src="assets/images/A1.png" alt="Apuesta 1">
+    <!-- Fechas del reto -->
+    <div class="dates">
+        Fecha de Inicio: <strong>1 de Octubre 2024</strong> <br>
+        Fecha de Fin: <strong>8 de Octubre 2024</strong>
+    </div>
+
+    <!-- Nuevo carrusel debajo de la fecha -->
+    <div class="carousel-container" id="carousel-nuevo">
+        <div class="carousel-images">
+            <img src="assets/images/A0.png" alt="Contenido 1" class="carousel-image">
+            <img src="assets/images/A1.png" alt="Contenido 1" class="carousel-image">
+            <img src="assets/images/A2.png" alt="Contenido 2" class="carousel-image">
+            <img src="assets/images/A3.png" alt="Contenido 3" class="carousel-image">
+            <img src="assets/images/A4.png" alt="Contenido 4" class="carousel-image">
+            <img src="assets/images/A5.png" alt="Contenido 5" class="carousel-image">
+            <img src="assets/images/A6.png" alt="Contenido 6" class="carousel-image">
+            <img src="assets/images/A7.png" alt="Contenido 7" class="carousel-image">
+            <img src="assets/images/A8.png" alt="Contenido 8" class="carousel-image">
         </div>
-        <div class="tarjeta-apuesta">
-            <img src="assets/images/A2.png" alt="Apuesta 2">
-        </div>
-        <div class="tarjeta-apuesta">
-            <img src="assets/images/A3.png" alt="Apuesta 3">
-        </div>
-        <div class="tarjeta-apuesta">
-            <img src="assets/images/A4.png" alt="Apuesta 4">
-        </div>
-        <div class="tarjeta-apuesta">
-            <img src="assets/images/A5.png" alt="Apuesta 5">
-        </div>
-        <div class="tarjeta-apuesta">
-            <img src="assets/images/A6.png" alt="Apuesta 6">
-        </div>
-        <div class="tarjeta-apuesta">
-            <img src="assets/images/A7.png" alt="Apuesta 7">
-        </div>
-        <div class="tarjeta-apuesta">
-            <img src="assets/images/A8.png" alt="Apuesta 8">
-        </div>
-    </section>
+        <button class="carousel-button prev">&#10094;</button>
+        <button class="carousel-button next">&#10095;</button>
+    </div>
+    <div class="dots" id="dots-nuevo"></div>
 
     <script>
-        const testimonios = [
+        function iniciarCarrusel(container, dotsContainer, imagesArray) {
+            const imagesContainer = container.querySelector('.carousel-images');
+            const dotsDiv = dotsContainer;
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                imagesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateDots();
+            }
+
+            function updateDots() {
+                dotsDiv.innerHTML = '';
+                imagesArray.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (index === currentIndex) dot.classList.add('active-dot');
+                    dot.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                    dotsDiv.appendChild(dot);
+                });
+            }
+
+            container.querySelector('.prev').addEventListener('click', () => {
+                currentIndex = (currentIndex === 0) ? imagesArray.length - 1 : currentIndex - 1;
+                updateCarousel();
+            });
+
+            container.querySelector('.next').addEventListener('click', () => {
+                currentIndex = (currentIndex === imagesArray.length - 1) ? 0 : currentIndex + 1;
+                updateCarousel();
+            });
+
+            updateCarousel();
+        }
+
+        const carouselTestimonios = document.getElementById('carousel-testimonios');
+        const dotsTestimonios = document.getElementById('dots-testimonios');
+        const carouselNuevo = document.getElementById('carousel-nuevo');
+        const dotsNuevo = document.getElementById('dots-nuevo');
+
+        iniciarCarrusel(carouselTestimonios, dotsTestimonios, [
             "assets/images/T1.jpg",
             "assets/images/T2.jpg",
             "assets/images/T3.jpg",
@@ -131,7 +268,7 @@
             "assets/images/T5.jpg",
             "assets/images/T6.jpg",
             "assets/images/T7.jpg",
-            "assets/images/T8.jpeg",
+            "assets/images/T8.jpg",
             "assets/images/T9.jpg",
             "assets/images/T10.jpg",
             "assets/images/T11.jpg",
@@ -144,42 +281,74 @@
             "assets/images/T18.jpg",
             "assets/images/T19.jpg",
             "assets/images/T20.jpg",
-        ];
+            "assets/images/T21.jpg",
+        ]);
+
+        iniciarCarrusel(carouselNuevo, dotsNuevo, [
+           "assets/images/A0.png", 
+        "assets/images/A1.png",
+            "assets/images/A2.png",
+            "assets/images/A3.png",
+            "assets/images/A4.png",
+            "assets/images/A5.png",
+            "assets/images/A6.png",
+            "assets/images/A7.png",
+            "assets/images/A8.png",
+        ]);
+
         
-        let index = 0;
-        let intervalo;
-
-        function mostrarTestimonio() {
-            const imagen = document.querySelector('.tarjeta-testimonio img');
-            imagen.src = testimonios[index];
-        }
-
-        // Cambiar imagen cada 4 segundos
-        function iniciarCarrusel() {
-            intervalo = setInterval(() => {
-                index = (index < testimonios.length - 1) ? index + 1 : 0;
-                mostrarTestimonio();
-            }, 3000); // Cambiar cada 3 segundos
-        }
-
-        iniciarCarrusel(); // Iniciar el carrusel
-
-        // Detener el carrusel al interactuar con la imagen
-        const testimonioImagen = document.querySelector('.tarjeta-testimonio img');
-
-        const detenerCarrusel = () => clearInterval(intervalo); // Función para detener el carrusel
-        const reiniciarCarrusel = () => iniciarCarrusel(); // Función para reiniciar el carrusel
-
-        // Eventos para dispositivos táctiles y computadoras
-        testimonioImagen.addEventListener('touchstart', detenerCarrusel); // Detener en toque
-        testimonioImagen.addEventListener('touchend', reiniciarCarrusel); // Reiniciar al soltar
-
-        testimonioImagen.addEventListener('mouseenter', detenerCarrusel); // Detener al pasar el mouse
-        testimonioImagen.addEventListener('mouseleave', reiniciarCarrusel); // Reiniciar al salir el mouse
-
-        // Mostrar la primera imagen al cargar
-        mostrarTestimonio();
     </script>
-</body>
 
+<div class="tuclase">RETO X5</div>
+<div class="subtitle">Grupos Stellar Stake</div>
+
+<!-- Carrusel para Reto X5 -->
+<div class="carousel-container" id="carousel-reto-x5">
+    <div class="carousel-images">
+        <img src="assets/images/RETO X5 (2).png" alt="Contenido X5-1" class="carousel-image">
+        <img src="assets/images/B1.jpg" alt="Contenido X5-2" class="carousel-image">
+        <img src="assets/images/B2.jpg" alt="Contenido X5-3" class="carousel-image">
+        <img src="assets/images/B3.jpg" alt="Contenido X5-4" class="carousel-image">
+        <img src="assets/images/B4.jpg" alt="Contenido X5-5" class="carousel-image">
+    </div>
+    <button class="carousel-button prev">&#10094;</button>
+    <button class="carousel-button next">&#10095;</button>
+</div>
+<div class="dots" id="dots-reto-x5"></div>
+<div class="dates">
+    Fecha de Inicio: <strong>10 de Octubre 2024</strong> <br>
+    Fecha de Fin: <strong>13 de Octubre 2024</strong>
+</div>
+
+<script>
+    const carouselRetoX5 = document.getElementById('carousel-reto-x5');
+    const dotsRetoX5 = document.getElementById('dots-reto-x5');
+
+    iniciarCarrusel(carouselRetoX5, dotsRetoX5, [
+        "assets/images/RETO X5 (2).png",
+        "assets/images/B1.jpg",
+        "assets/images/B2.jpg",
+        "assets/images/B3.jpg",
+        "assets/images/B4.jpg",
+    ]);
+</script>
+
+<div class="carousel-container" id="carousel-nuevo">
+    <div class="carousel-images">
+        <img src="assets/images/A1.png" alt="Contenido 1" class="carousel-image">
+        <img src="assets/images/A2.png" alt="Contenido 2" class="carousel-image">
+        <img src="assets/images/A3.png" alt="Contenido 3" class="carousel-image">
+        <img src="assets/images/A4.png" alt="Contenido 4" class="carousel-image">
+        <img src="assets/images/A5.png" alt="Contenido 5" class="carousel-image">
+        <img src="assets/images/A6.png" alt="Contenido 6" class="carousel-image">
+        <img src="assets/images/A7.png" alt="Contenido 7" class="carousel-image">
+        <img src="assets/images/A8.png" alt="Contenido 8" class="carousel-image">
+        <img src="assets/images/A9.png" alt="Contenido 9" class="carousel-image">  <!-- Nueva imagen -->
+        <img src="assets/images/A10.png" alt="Contenido 10" class="carousel-image"> <!-- Nueva imagen -->
+    </div>
+    <button class="carousel-button prev">&#10094;</button>
+    <button class="carousel-button next">&#10095;</button>
+</div>
+<div class="dots" id="dots-nuevo"></div>
+</body>
 </html>
