@@ -79,7 +79,6 @@
         }
 
         .tiktok {
-            position: relative;
             background-image: url('assets/images/Tok.png');
             width: 80px;
             height: 80px;
@@ -88,39 +87,6 @@
         .telegram:hover, .instagram:hover, .tiktok:hover {
             transform: scale(1.1);
             box-shadow: 0 5px 20px rgba(255, 60, 0, 0.6);
-        }
-
-        /* Estilos del letrero */
-        .tiktok-message {
-            position: absolute;
-            bottom: 90px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #FF5722;
-            color: white;
-            width: auto;
-            height: auto;
-            padding: 10px 15px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.8em;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            animation: slideIn 1s forwards, fadeOut 0.5s 9s forwards;
-            text-align: center;
-            font-weight: bold;
-            z-index: 1;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translate(10px, -10px); }
-            to { opacity: 1; transform: translate(0, 0); }
-        }
-
-        @keyframes fadeOut {
-            to { opacity: 0; }
         }
     </style>
 </head>
@@ -134,11 +100,6 @@
         function irATelegram() { window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank'); }
         function irAInstagram() { window.open('https://www.instagram.com/strellastake/', '_blank'); }
         function irATikTok() { window.open('https://www.tiktok.com/@stake_fijas?_t=8qsnooyYrW1&_r=1', '_blank'); }
-
-        window.onload = function() {
-            const message = document.querySelector('.tiktok-message');
-            message.style.display = 'flex';
-        };
     </script>
 
     <div class="titulo-container">
@@ -153,9 +114,8 @@
     <div class="red-social">
         <div class="instagram" onclick="irAInstagram()"></div>
         <div class="telegram" onclick="irATelegram()"></div>
-        <div class="tiktok" onclick="irATikTok()">
-            <div class="tiktok-message">¡Video Análisis Racing VS Corinthians! 🎬</div>
-        </div>
+        <div class="tiktok" onclick="irATikTok()"></div>
     </div>
 </body>
 </html>
+
