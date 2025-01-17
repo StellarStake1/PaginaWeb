@@ -14,25 +14,25 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Centra verticalmente */
-            background-color: #000; /* Fondo negro */
+            justify-content: center;
+            background-color: #000;
             margin: 0;
             min-height: 100vh;
             color: #fff;
+            overflow-x: hidden;
         }
 
         .form-container {
             background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 12px;
-            border: 2px solid #FF5722; /* Borde neón */
-            box-shadow: 0 0 20px #FF5722, 0 0 40px #FF5722, 0 0 60px #FF5722; /* Sombra luminosa */
+            border: 2px solid #FF5722;
+            box-shadow: 0 0 20px #FF5722, 0 0 40px #FF5722, 0 0 60px #FF5722;
             max-width: 400px;
-            width: 90%; /* Ajusta el ancho al 90% del contenedor */
+            width: 90%;
             text-align: center;
             margin: 20px 0;
-            transition: transform 0.3s;
-            box-sizing: border-box; /* Asegura que el padding no sume al ancho */
+            box-sizing: border-box;
         }
 
         .form-container:hover {
@@ -41,7 +41,7 @@
 
         h1 {
             font-size: 28px;
-            margin-bottom: 15px;
+            margin-bottom: 20px; /* Ajuste para dar margen a la imagen */
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -59,12 +59,11 @@
             width: 100%;
             padding: 12px;
             border-radius: 10px;
-            border: 2px solid #FF5722; /* Borde del cuadro de contraseña */
+            border: 2px solid #FF5722;
             font-size: 16px;
             margin-bottom: 20px;
             background-color: rgba(255, 255, 255, 0.1);
-            transition: border-color 0.3s, background-color 0.3s;
-            box-sizing: border-box; /* Asegura que el padding no sume al ancho */
+            box-sizing: border-box;
         }
 
         input[type="password"]:focus {
@@ -74,7 +73,7 @@
         }
 
         .btn-acceder {
-            background: linear-gradient(135deg, #FFC107, #FF5722); /* Degradado de los colores */
+            background: linear-gradient(135deg, #FFC107, #FF5722);
             color: white;
             padding: 15px 30px;
             border: none;
@@ -82,7 +81,6 @@
             font-size: 18px;
             cursor: pointer;
             width: 100%;
-            transition: background-color 0.3s;
         }
 
         .btn-acceder:hover {
@@ -98,43 +96,22 @@
         }
 
         #contenido {
-            display: none; /* Asegúrate de que el contenido esté oculto inicialmente */
+            display: none;
             text-align: center;
             padding: 20px;
         }
 
         #mensaje-bienvenida {
-            display: none; /* Oculta el mensaje de bienvenida inicialmente */
+            display: none;
             text-align: center;
             padding: 20px;
             font-size: 20px;
             color: #fff;
         }
 
-        .btn-telegram {
-            display: none; /* Oculta el botón de Telegram inicialmente */
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #0088cc;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            cursor: pointer;
-            width: calc(100% - 40px);
-            transition: background 0.3s;
-        }
-
-        .btn-telegram:hover {
-            background-color: #0077b3;
-        }
-
         .titulo-container {
-            display: none; /* Ocultar por defecto */
-            background-color: #ffffff; /* Color de fondo del cuadro */
+            display: none;
+            background-color: #ffffff;
             padding: 10px 20px;
             border-radius: 10px;
             position: fixed;
@@ -142,49 +119,63 @@
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
-        }
-        
-        .imagen-container {
-            display: none; /* Ocultar por defecto */
-            margin-top: 20px; /* Espaciado superior */
+            z-index: 10;
         }
 
-        .imagen-europa {
-            max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
+        .imagen-container {
+            display: none;
+            margin-top: 140px; /* Márgenes ajustados para que las imágenes no se superpongan con el título */
+            text-align: center;
+            width: 100%;
+        }
+
+        .imagen-europa,
+        .segunda-imagen {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin: 10px 0; /* Espacio entre las imágenes */
+            display: block;
+            border-radius: 12px; /* Bordes redondeados para un diseño más moderno */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); /* Sombra sutil para mayor contraste */
+        }
+
+        /* Estilo adicional para que las imágenes no se sobrepongan en pantallas pequeñas */
+        @media screen and (max-width: 768px) {
+            .imagen-europa,
+            .segunda-imagen {
+                max-width: 100%;
+                height: auto;
+                margin: 15px 0; /* Espacio entre imágenes */
+            }
         }
     </style>
+
     <script>
         function verificarContraseña() {
             const contraseña = document.getElementById("password").value;
             const contraseñasPermitidas = [
                 "27891", "64329", "81573", "95218", "46082",
                 "72815", "12647", "58306", "39754", "01285",
-                "90466", "25801", "71943", 
+                "90466", "25801", "71943",
             ];
             const errorMessage = document.getElementById("error-message");
-            const botonTelegram = document.querySelector(".btn-telegram");
             const tituloContainer = document.querySelector(".titulo-container");
             const mensajeBienvenida = document.getElementById("mensaje-bienvenida");
             const imagenContainer = document.querySelector(".imagen-container");
 
             if (contraseñasPermitidas.includes(contraseña)) {
-                mensajeBienvenida.style.display = "block"; // Muestra el mensaje de bienvenida
+                mensajeBienvenida.style.display = "block";
                 setTimeout(() => {
-                    mensajeBienvenida.style.display = "none"; // Oculta el mensaje de bienvenida
-                    document.getElementById("contenido").style.display = "block"; // Muestra el contenido
-                    document.getElementById("formulario").style.display = "none"; // Oculta el formulario
-                    botonTelegram.style.display = "block"; // Muestra el botón de Telegram
-                    tituloContainer.style.display = "block"; // Muestra el título
-                    imagenContainer.style.display = "block"; // Muestra la imagen
-                }, 2000); // Espera 2 segundos antes de mostrar el contenido
+                    mensajeBienvenida.style.display = "none";
+                    document.getElementById("contenido").style.display = "block";
+                    document.getElementById("formulario").style.display = "none";
+                    tituloContainer.style.display = "block";
+                    imagenContainer.style.display = "block";
+                }, 2000);
             } else {
-                errorMessage.style.display = "block"; // Muestra mensaje de error
+                errorMessage.style.display = "block";
             }
-        }
-
-        function abrirTelegram() {
-            window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank');
         }
     </script>
 </head>
@@ -208,14 +199,10 @@
 
     <div id="contenido">
         <div class="imagen-container">
-            <!-- Agrega el enlace correcto y el atributo alt para la imagen -->
             <img class="imagen-europa" src="assets/images/UUU.png" alt="Logo de la Europa League">
+            <img class="segunda-imagen" src="assets/images/UUUUU.png" alt="Segunda Imagen">
         </div>
-        
     </div>
-
-    <button class="btn-telegram" onclick="abrirTelegram()">Únete a nuestro grupo de Telegram</button>
 </body>
 
 </html>
-
