@@ -36,30 +36,72 @@
         }
 
         /* Mantener la estructura original */
-        .botones-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
         .boton {
-            background: linear-gradient(135deg, #FFC107, #FF5722);
-            color: white;
-            border-radius: 8px;
-            font-size: 1em;
-            width: 200px;
-            height: 55px;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    position: relative;
+    margin-top: 15px;
+    background: #1a1a1d; /* Fondo negro */
+    color: #fff;
+    font-size: 1.2em;
+    width: 220px;
+    height: 60px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    z-index: 1;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Sombra suave */
+}
 
-        .boton:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(255, 87, 34, 0.7);
-        }
+.boton::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #ff0000, #ff3c00, #ffe600, #ff9100, #ff0000);
+    background-size: 400% 100%;
+    z-index: -1;
+    filter: blur(8px); /* Efecto de desenfoque para el borde */
+    animation: borderLight 3s linear infinite; /* Animación de luz */
+}
 
+.boton::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: #1a1a1d; /* Fondo negro interno */
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.boton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4); /* Sombra de neón */
+}
+
+@keyframes borderLight {
+    0% {
+        background-position: 0%;
+    }
+    25% {
+        background-position: 25%;
+    }
+    50% {
+        background-position: 50%;
+    }
+    75% {
+        background-position: 75%;
+    }
+    100% {
+        background-position: 0%;
+    }
+}
         .imagenes-container {
             display: flex;
             flex-wrap: wrap;
