@@ -34,71 +34,71 @@
         }
 
         .boton {
-    position: relative;
-    margin-top: 15px;
-    background: #1a1a1d; /* Fondo negro */
-    color: #fff;
-    font-size: 1.2em;
-    width: 220px;
-    height: 60px;
-    cursor: pointer;
-    border: none;
-    border-radius: 12px;
-    z-index: 1;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Sombra suave */
-}
+            position: relative;
+            margin-top: 15px;
+            background: #1a1a1d;
+            color: #fff;
+            font-size: 1.2em;
+            width: 220px;
+            height: 60px;
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+            z-index: 1;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
 
-.boton::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 15px;
-    background: linear-gradient(90deg, #ff0000, #ff3c00, #ffe600, #ff9100, #ff0000);
-    background-size: 400% 100%;
-    z-index: -1;
-    filter: blur(8px); /* Efecto de desenfoque para el borde */
-    animation: borderLight 3s linear infinite; /* Animación de luz */
-}
+        .boton::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 15px;
+            background: linear-gradient(90deg, #ff0000, #ff3c00, #ffe600, #ff9100, #ff0000);
+            background-size: 400% 100%;
+            z-index: -1;
+            filter: blur(8px);
+            animation: borderLight 3s linear infinite;
+        }
 
-.boton::after {
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
-    background: #1a1a1d; /* Fondo negro interno */
-    border-radius: 10px;
-    z-index: -1;
-}
+        .boton::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            background: #1a1a1d;
+            border-radius: 10px;
+            z-index: -1;
+        }
 
-.boton:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4); /* Sombra de neón */
-}
+        .boton:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4);
+        }
 
-@keyframes borderLight {
-    0% {
-        background-position: 0%;
-    }
-    25% {
-        background-position: 25%;
-    }
-    50% {
-        background-position: 50%;
-    }
-    75% {
-        background-position: 75%;
-    }
-    100% {
-        background-position: 0%;
-    }
-}
+        @keyframes borderLight {
+            0% {
+                background-position: 0%;
+            }
+            25% {
+                background-position: 25%;
+            }
+            50% {
+                background-position: 50%;
+            }
+            75% {
+                background-position: 75%;
+            }
+            100% {
+                background-position: 0%;
+            }
+        }
 
         .red-social {
             display: flex;
@@ -137,9 +137,36 @@
             transform: scale(1.1);
             box-shadow: 0 5px 20px rgba(255, 60, 0, 0.6);
         }
+
+        /* Estilos del letrero TikTok */
+        .tiktok-message {
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #FF5722;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: slideIn 1s forwards, fadeOut 0.5s 9s forwards;
+            text-align: center;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translate(10px, -10px); }
+            to { opacity: 1; transform: translate(0, 0); }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
     </style>
 </head>
-
 <body>
     <script>
         function verFutbol() { window.open('futbol.html', '_blank'); }
@@ -149,6 +176,11 @@
         function irATelegram() { window.open('https://t.me/+X8oJLoa9vUllNGYx', '_blank'); }
         function irAInstagram() { window.open('https://www.instagram.com/strellastake/', '_blank'); }
         function irATikTok() { window.open('https://www.tiktok.com/@stake_fijas?_t=8qsnooyYrW1&_r=1', '_blank'); }
+
+        window.onload = function() {
+            const message = document.querySelector('.tiktok-message');
+            message.style.display = 'flex';
+        };
     </script>
 
     <div class="titulo-container">
@@ -165,6 +197,7 @@
         <div class="telegram" onclick="irATelegram()"></div>
         <div class="tiktok" onclick="irATikTok()"></div>
     </div>
+
+    <div class="tiktok-message">¡Video Combinada de Champions League 🎬</div>
 </body>
 </html>
-
