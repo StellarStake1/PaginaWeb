@@ -142,8 +142,13 @@
             }
 
             .botones-container {
-                flex-direction: column;
-            }
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se ajusten en varias filas si es necesario */
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center; /* Centra los botones verticalmente */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 20px;
+}
         }
     </style>
     <script>
